@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "product_reference": "Leatherman Rebar, approximate classic butterfly mechanism",
+  "fidelity": "approximate_unmeasured",
+  "authorization": "User approved a close-enough implementation on 2026-11-22; no physical calibration claimed.",
+  "source": "https://www.leatherman.com/products/rebar",
+  "published_envelope_m": {"closed_length": 0.1016, "open_length": 0.15875, "width": 0.029972, "thickness": 0.01651},
+  "published_mass_kg": 0.1885,
+  "geometry_provenance": "Outer envelope from manufacturer; internal dimensions inferred from manufacturer photographs, not measured.",
+  "geometry": {
+    "fold_pivot_x": -0.014,
+    "fold_pivot_half_span": 0.007486,
+    "handle_tail_x": -0.095,
+    "handle_front_x": 0.0066,
+    "handle_width": 0.014972,
+    "handle_thickness": 0.01651,
+    "shell_wall": 0.0012,
+    "jaw_tip_x": 0.04975,
+    "jaw_tip_half_gap": 0.00035,
+    "jaw_tip_outer_y": 0.0024,
+    "jaw_thickness": 0.0065,
+    "central_bearing_radius": 0.010,
+    "bite_from_tip": 0.002,
+    "stowed_stack_tail_length": 0.023
+  },
+  "body_masses_kg": {"jaw_a": 0.0268, "jaw_b": 0.0268, "handle_a": 0.06745, "handle_b": 0.06745},
+  "mass_provenance": "Total matches published mass; estimated allocation approximates uniform 7.86 g/cm3 steel across the compound geometry. Component COM and inertia remain estimates.",
+  "joints": {
+    "jaw": {
+      "limits_rad": [-0.70, 0.0], "reset_rad": 0.0,
+      "potential_knots": [[-0.70, 0.0], [0.0, 0.0]],
+      "coulomb_nm": 0.008, "viscous_nms": 0.001,
+      "velocity_regularization_rads": 0.01
+    },
+    "fold_a": {
+      "limits_rad": [0.0, 3.141592653589793], "reset_rad": 3.141592653589793,
+      "potential_knots": [[0.0, 0.0], [0.12, 0.004], [0.30, 0.006], [2.84, 0.006], [3.02, 0.004], [3.141592653589793, 0.0]],
+      "coulomb_nm": 0.015, "viscous_nms": 0.002,
+      "velocity_regularization_rads": 0.01
+    },
+    "fold_b": {
+      "limits_rad": [-3.141592653589793, 0.0], "reset_rad": -3.141592653589793,
+      "potential_knots": [[-3.141592653589793, 0.0], [-3.02, 0.004], [-2.84, 0.006], [-0.30, 0.006], [-0.12, 0.004], [0.0, 0.0]],
+      "coulomb_nm": 0.015, "viscous_nms": 0.002,
+      "velocity_regularization_rads": 0.01
+    }
+  },
+  "mechanics_provenance": "Unmeasured estimates: approximately 0.015 Nm fold drag and a finite 0.006 J end detent barrier; no plier-head lock or jaw opening spring. Smooth conservative potential plus native implicit Coulomb/viscous joint friction, never angle snapping. velocity_regularization_rads applies only to the offline continuous reference law, not the native implicit solver.",
+  "contact": {"static_friction": 0.45, "dynamic_friction": 0.35, "contact_offset_m": 0.0003, "rest_offset_m": 0.0},
+  "contact_provenance": "Dry metal/gripper contact approximation; no adhesion, enlarged patch radius, or hidden grip collider.",
+  "measurements_pending": ["pivot coordinates and actual limits", "stop surfaces", "torque-angle curves", "central pivot breakaway", "handle collapse load", "link masses and COM", "finger and jaw friction", "stowed implement geometry"]
+}

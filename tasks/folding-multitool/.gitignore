@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.mp4
+*.eval
+*.jsonl
+*.usd
+*.usda
+*.usdc
+runs/
+output/

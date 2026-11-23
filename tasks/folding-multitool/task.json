@@ -1,0 +1,19 @@
+{
+  "title": "Deploy butterfly multitool pliers and retrieve a recessed coupling nut",
+  "category": "Societal relatability",
+  "keywords": [
+    "bimanual",
+    "passive articulation",
+    "functional deployment",
+    "tool use"
+  ],
+  "instruction": "Unfold the folded butterfly multitool pliers. Use the working jaws to grip the loose coupling nut in the rectangular recess, lift it out, carry it to the blue tray, and release it inside. Move the tool and both robot grippers clear and leave the nut resting in the tray. Complete the task within 180 seconds.",
+  "setup": "Two stock YAM arms with parallel grippers at their native ready poses. Steel Rebar-style multitool, 101.6 mm folded / 158.75 mm deployed, 29.972 mm wide, 16.51 mm thick, 188.5 g, folded on two 8 x 45 x 55 mm wooden supports centered at (0.342,0) and (0.418,0) m. Native rigid tabletop z=0.7475 m. Fixed metal maintenance coupon, 80 x 60 x 38 mm, centered at (0.24,0) m, with a 24 x 24 mm recess 28 mm deep above a 10 mm floor. Upright loose stainless M6 DIN 6334 coupling nut at the recess center: 10 mm across flats, 18 mm tall, approximately 5 mm bore, 9.57 g. Fixed blue rigid tray at (0.49,0) m: 100 x 100 mm interior, 3 mm floor, 3 mm walls rising 25 mm. All fixtures are level; coordinates use the native station frame. Fixed overhead and stock wrist cameras.",
+  "scoring": "0.25: start folded, unfold both handles to within 5 degrees, pinch distinct handles, open working jaws >=14 mm for 0.5 s then close <=1 mm for 0.5 s. 0.5: after stable tip-down deployment, pinch the nut between opposing inner jaws inside the recess, lift its bottom >=10 mm above the rim for 1 s and carry >=30 mm horizontally without other support. 1.0: release from that carry wholly inside the tray with 3 mm margin; leave it on the floor below the rim, speed <5 mm/s, drift <=2 mm for 2 s, with tool/robot clearance >=20 mm and no supporting contact. Deployment/carry credit persists; full credit requires the final stable release. Nut-in-tray alone earns no retrieval credit; otherwise 0.",
+  "run_limit": "3600 standard 14D actions at 20 Hz (180 simulated seconds)",
+  "fidelity": "Approximate unmeasured Rebar-style passive mechanism: published envelope/mass, estimated link geometry, inertia, hinge friction and finite detents; no plier-head lock. Coupling nut uses a 12-sector convex approximation retaining its bore, with threads/chamfers omitted and catalogue mass. Recess/tray use five native box colliders each. Stock YAM geometry, limits, gains and installed native environment.",
+  "scores": "Dream-1: 0.0, 3600 actions, step_limit; scripted demo: 1.0, 3018 actions, success. Both seed 0, independently rescored and recording reviewed.",
+  "media": "M-JTNCGU",
+  "context": "Maintenance with a stowed tool: reconfigure a passive linkage through contact and regrasping, then transmit useful gripping force through the deployed handles to retrieve a fastener from a narrow recess.",
+  "reset_notes": "Reset the folded tool on both supports and the upright nut on the recess floor; both robot grippers start open at native ready poses. No consumables. Seed 0, no placement randomization."
+}

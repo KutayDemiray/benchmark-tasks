@@ -1,0 +1,175 @@
+{
+  "task": "furniture-sliders",
+  "environment_seed": 0,
+  "scripted_demonstration": {
+    "run": "full-002",
+    "score": 1.0,
+    "actions": 5838,
+    "budget": 6000,
+    "bare_start": true,
+    "supported_transport_m": 0.20396623,
+    "evaluated_bundle_sha256": "23004311376acddfa7a40d898b37686fbfd6f170284362bcf385d9652e6ec68c"
+  },
+  "model_evaluation": {
+    "run": "dream-001",
+    "model": "dreamlabs/dream-1-beta",
+    "score": 0.0,
+    "actions": 6000,
+    "termination_reason": "max_steps",
+    "genuine_hosted_episode_count": 1,
+    "scripted_assistance": false,
+    "returned_chunks": 125,
+    "sdk_transport_attempts": 249,
+    "sdk_expiration_retries": 124,
+    "reported_server_sessions": 125,
+    "native_limit_clipped_actions": 4315,
+    "stable_server_session_performance_established": false,
+    "evaluated_bundle_sha256": "034c636cfcd25e93eacd8528d181e394b0ac152e1ef9e79770d61611f358c7ce"
+  },
+  "spec_sha256": "5abdaf0dbb4faf4ec593b7eca22e4ef98b7e3d359af77bb4c2e46048e20a1159",
+  "evaluated_python_and_spec_sha256": {
+    "adapter.py": "0d66cc26cce37a55427a4bd7a7213d840a02c3a48b9a82ad29e428ea6afcfae1",
+    "assets.py": "00f148f52e7ba39ec2caf2fccd5589507a4ff191c5e6288c55a0a508ab906943",
+    "audit_run.py": "f23d2bf914fae540921c1ab2c4fda99c40263cb6510759174efc733c1351ca12",
+    "config.py": "a515792134b6dc62068bcd07563275c796b94fac588b6d3c135a0a08bc14ed3d",
+    "control_utils.py": "92c527a74bbb0320cd246d221ed3eef82ff25723f5bf1d759c480f855a0440c8",
+    "controller.py": "08525be466082d219346607a357a5114686a7808b9ac2ef96c0393ed2df8554b",
+    "dream_control.py": "ce9cbeaaf423c57b3ca001d681bd12edc405530bbd4b0562c9c0f0d8f7859914",
+    "floor_geometry.py": "5387ca324e816371a0abc48846b55a5c5fa56dca83924c07e424790471565a89",
+    "motion_plan.py": "a3a5cb782f98bd15a51f7abc0d4ea98a4755137a95f754572fcefc635569fc69",
+    "native_audit.py": "4800e3b15be33e999c0750919d50b9ed7eb11d69297b51545541a8c7f2fe0618",
+    "observer.py": "699e2b2642cb1a67b49d522f09f5bc617506fe62ae07f3366333c879cea57f92",
+    "partkit.py": "f97c2ca8b9a561cd49000070099d9a4312fdefc3e63586bf3a2134285cbae32b",
+    "replay_score.py": "62464d30478185937ef2cf1e2a9e185910976a0822ede72a52ada482f625b719",
+    "run.py": "741d4aedd0d77cd6e6ffba875c7d60696dc5d9b5e329bd640d50c25f0576ee21",
+    "scheduled_runtime.py": "08eb6b7daa9dfc35564da85451ea78abbdd24e47140654fa004372a4485b7e9f",
+    "scoring.py": "9650b9e2200899b0a967aaac051655e92e454b5ac154a210f7b0b8bd9442f6b1",
+    "spec.json": "5abdaf0dbb4faf4ec593b7eca22e4ef98b7e3d359af77bb4c2e46048e20a1159",
+    "task.py": "7a95a2ec5f8bcc76cd459d605aeb526f809a12ef905c6797422c840478764d94",
+    "test_dream.py": "23579e5bae2259d8813ddc92c1ecb6811b9df03b8b862c907231776e0ac038b7",
+    "test_floor.py": "d34d0c98e07b0aaf93590998581567de4484bfcb202f2c2e0acd9c6b18fedb1a",
+    "test_motion.py": "4bdc35aaa68a4dc3f613c4e95c25e2aa99bf06716010033f1dead3bd37134d7e",
+    "test_runtime.py": "a61c6da3bd88afffd89d76a24611df5f277ae3f51e9e6e3061a000396511eb30",
+    "test_scoring.py": "f45bd3038964ed1cc1980e7f9292df5c908fec93a8b6a410bbff39c258c52049"
+  },
+  "installed_integration_source_sha256": {
+    "inspect_robots_dream": {
+      "__init__.py": "55cb84df9c5c57c4730d04b7321c7ce05b790bb59516d653a8fa33a153d1aedd",
+      "_station.py": "0b24ccab52cabf8e14279b599c2173bed25f16c1a3d9656d8d739886b27fc0c7",
+      "bridge.py": "b271f7de42848f813bea4d69359f07fe73a8b40dd0b18597d1a49bcfe8db586b",
+      "policy.py": "64f6a6661e303a1012894af3539ecd0d14810af03aead302ede0ba9e9f6f258d",
+      "session.py": "e79ff8c14d658ba8d239bbd2892624d492b8648656c9cf063ddc031a45c6713c"
+    },
+    "dream": {
+      "__init__.py": "9c6847581461bca9cb1f64d964c818737ca954c347cf51eba2fc07d85c8e9468",
+      "_recorder.py": "64221eec44346108973bec507d4d5d73aaa1e0a8e1fc5bbbbd70b78846b03dda",
+      "_window.py": "ee80043a1c10ecbfaa1e1caa08edf192f7763183ca7be53e1650c4b3a73ad0d4",
+      "arm_file.py": "c4e52b9f0c6704046dc1cc7b8599f0d82cd5f0813644422953ab744e246bb5a7",
+      "check.py": "06fc573c1dd5e6404e93fe3d9accae595e74fa0edfc1e90ab2fe89897c096e3a",
+      "check_arm.py": "2dda8991f11f37d6b92f80ba510e6b7794f1150c9752df092f7c2d06c4783794",
+      "check_loop.py": "f1291afc86cfa56d26abe40350c7c6c23e4794fcb3efbbc47f0874f2ebfe7659",
+      "check_model.py": "2bd92983efe60cec90c64f83b6421f60bfd8e07f642cbfcb295c2b1863d03600",
+      "client.py": "42f06e25be3762247983579b1aed414de6773c5997a16324a8c7bdc8f3483867",
+      "client_ik.py": "87f4f64bfebb1c17c818665f5b315352322aa4a3d74799cae4269e63a217275b",
+      "credentials.py": "9a270e7d9131ed8f31e4f3518ce577c5feeaeaf970a822a97a7acaa7aaf447f6",
+      "datasets.py": "d7402120f10c4299e81960354fcf5d7228e5074ec43f10a2df94ae61871b84ef",
+      "debug_view.py": "20b91a72d7f2845bfe3050c5493952c6e5dd74d9198ff126dfb9e8ac9f542479",
+      "errors.py": "1a1855fa1c6e08bcacfce790737b37da33f004e5da60f7cc74753238fa34967c",
+      "facade.py": "f0e3db57bb97420191e86cf18b78f66521af87dd51507459b81058a0af773c62",
+      "fine_tuning.py": "6b5dbb984deb8e9d4f0b1de141fdf0a9757db45013c9a4f697aec50a58eb8730",
+      "input_check.py": "a9e6a489fc93f5d5c0bd08d2e0e5a6f37c72b8694efa283105f86e0bae8bb54e",
+      "live.py": "db5828de15bdbf1d3f0c4739355329a9b5219c5a92aba26ac9511c85049b17af",
+      "logs.py": "312836c8e51055baa69cb7a577cd063655da998d36ce7e74509d0d648bd62f75",
+      "models.py": "ae4fda3a890ab86e75e5ba20498dccc328b2ac21dea15eb8cad41fa90ed7371a",
+      "pacing.py": "08189797738ccaa77368187661af8e89f549d0079b26c3561e5e3368f2cf0546",
+      "seam_join.py": "934b56b78530c826fb22617bd68c50c86575b0a125382961f4bab47432ad8f88",
+      "slow_network.py": "c42400b42d5d15590680335feacd04963a7d3ad68d4a633bb521586df648b933",
+      "smoothing.py": "5e67e756513d4d8dae829cd82d0fc7dfa9edca3227600ceae893f946000f85b4",
+      "trained_inputs.py": "5f73bca9cabf86b84777db9de55d045e3a9ef291997ea053d34e5469f2bf49cd",
+      "transport.py": "38a9f9d7ba8882b35210ade2af2b376ab1cff733bf1590bd8fd0bc544fa8fcc7"
+    }
+  },
+  "installed_integration_versions": {
+    "inspect-robots-dream": "0.1.0",
+    "dreamlabs-client": "1.1.7",
+    "inspect-robots": "1.0.0",
+    "yam-arena": "0.1.0"
+  },
+  "independent_reassessment": {
+    "scripted_score": 1.0,
+    "model_score": 0.0,
+    "model_action_difference": 0.0,
+    "native_state_error": 3.9672953144886947e-08,
+    "tests_passed": 34
+  },
+  "media": {
+    "model_run.mp4": {
+      "bytes": 20910696,
+      "sha256": "e6030164f0ab9f9f677faf561d696e399f750f4db631168f36caf0bdd88d3ff8"
+    },
+    "demo.mp4": {
+      "bytes": 25741621,
+      "sha256": "f7059dedbee5c8632c35200e9c186408bd46d300afb178e21c65f4f3f2e6af46"
+    },
+    "setup.png": {
+      "bytes": 144319,
+      "sha256": "34dd37db476140656c23aac72281aeb49e33a74fbb009aa71c4f37f3bcbfc76d"
+    }
+  },
+  "task_board_media_id": "M-7HHEF3",
+  "encoding": {
+    "model_run.mp4": {
+      "codec_name": "h264",
+      "pix_fmt": "yuv420p",
+      "width": 1280,
+      "height": 704,
+      "fps": 20.0,
+      "nb_frames": 6001,
+      "duration": 300.05
+    },
+    "demo.mp4": {
+      "codec_name": "h264",
+      "pix_fmt": "yuv420p",
+      "width": 1280,
+      "height": 704,
+      "fps": 20.0,
+      "nb_frames": 5839,
+      "duration": 291.95
+    }
+  },
+  "submission_scope": "Evaluated physics/controller/scorer/robot unchanged. Packaging adds documentation, metadata, ignore rules and a copied CPU model auditor. Raw recordings, credentials and simulator caches are external to Git.",
+  "submission_files_sha256": {
+    ".gitignore": "63c1807fd83de5d40fc796fe692474e0d293717b7a43f3da103fbb18af20dd3c",
+    "DEPENDENCIES.md": "f58e06a86a025236a320a1b8e6618a89c6acea076cae608c54b2608fe9d1f789",
+    "LICENSE": "08d7d18417f03c19ccfdb200a578b698291c1daa7dd774931f19469911742f0e",
+    "README.md": "0177a1a2eae8e771e042bd0c0d9c11c3ba08a17e952e03f94bc235ee7b8f56ae",
+    "adapter.py": "0d66cc26cce37a55427a4bd7a7213d840a02c3a48b9a82ad29e428ea6afcfae1",
+    "assets.py": "00f148f52e7ba39ec2caf2fccd5589507a4ff191c5e6288c55a0a508ab906943",
+    "audit_run.py": "f23d2bf914fae540921c1ab2c4fda99c40263cb6510759174efc733c1351ca12",
+    "config.py": "a515792134b6dc62068bcd07563275c796b94fac588b6d3c135a0a08bc14ed3d",
+    "control_utils.py": "92c527a74bbb0320cd246d221ed3eef82ff25723f5bf1d759c480f855a0440c8",
+    "controller.py": "08525be466082d219346607a357a5114686a7808b9ac2ef96c0393ed2df8554b",
+    "dream_control.py": "ce9cbeaaf423c57b3ca001d681bd12edc405530bbd4b0562c9c0f0d8f7859914",
+    "floor_geometry.py": "5387ca324e816371a0abc48846b55a5c5fa56dca83924c07e424790471565a89",
+    "motion_plan.py": "a3a5cb782f98bd15a51f7abc0d4ea98a4755137a95f754572fcefc635569fc69",
+    "native_audit.py": "4800e3b15be33e999c0750919d50b9ed7eb11d69297b51545541a8c7f2fe0618",
+    "observer.py": "699e2b2642cb1a67b49d522f09f5bc617506fe62ae07f3366333c879cea57f92",
+    "partkit.py": "f97c2ca8b9a561cd49000070099d9a4312fdefc3e63586bf3a2134285cbae32b",
+    "regression-rear-approach.json": "ec7b4b01c85de0136623748756041d2f93224aaf05a1c02cca6e5c9d61ccb3d5",
+    "regression-rear-close.json": "7a37d77551d1d55f5f213bd66dbccbe3b19ee8668340bbaa2812016e7d1b93ca",
+    "regression-retreat.json": "7f60004bbe166a324b3512a525e4538e7568474c853b0448b06b223b677c72f5",
+    "replay_score.py": "62464d30478185937ef2cf1e2a9e185910976a0822ede72a52ada482f625b719",
+    "run.py": "741d4aedd0d77cd6e6ffba875c7d60696dc5d9b5e329bd640d50c25f0576ee21",
+    "scheduled_runtime.py": "08eb6b7daa9dfc35564da85451ea78abbdd24e47140654fa004372a4485b7e9f",
+    "scoring.py": "9650b9e2200899b0a967aaac051655e92e454b5ac154a210f7b0b8bd9442f6b1",
+    "spec.json": "5abdaf0dbb4faf4ec593b7eca22e4ef98b7e3d359af77bb4c2e46048e20a1159",
+    "task.json": "e1fe05ca666e2dc7bb546fa24ed4aaa6dc2c0a01d6e458c313d0d9d6e6d93d99",
+    "task.py": "7a95a2ec5f8bcc76cd459d605aeb526f809a12ef905c6797422c840478764d94",
+    "test_dream.py": "23579e5bae2259d8813ddc92c1ecb6811b9df03b8b862c907231776e0ac038b7",
+    "test_floor.py": "d34d0c98e07b0aaf93590998581567de4484bfcb202f2c2e0acd9c6b18fedb1a",
+    "test_motion.py": "4bdc35aaa68a4dc3f613c4e95c25e2aa99bf06716010033f1dead3bd37134d7e",
+    "test_runtime.py": "a61c6da3bd88afffd89d76a24611df5f277ae3f51e9e6e3061a000396511eb30",
+    "test_scoring.py": "f45bd3038964ed1cc1980e7f9292df5c908fec93a8b6a410bbff39c258c52049",
+    "tools/audit_model.py": "bb466bd615ae882499abb71d89a1d6610b3252b55f0ddf97be4f11e4a1c1e036"
+  }
+}

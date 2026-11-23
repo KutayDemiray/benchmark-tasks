@@ -1,0 +1,110 @@
+{
+  "protected_source_sha256": {
+    "dream_execution.py": "ec8f2d896540b88232e0cd3f1048a49031d4644d7119fc8478cfafa76dec5066",
+    "dream_live_runner.py": "0646ce38d944425c85d5aa8e320c9095128d0e75de196272ddf48ffe5baa506f",
+    "dream_local_check.py": "15814f323d8c0471a16d4f3adff644b2198d50ab024e10ddf55b64539831fa91",
+    "dream_readiness.py": "75c436675e024c966b75385b8329309b3c901ddee41459af5a5dec452fe55e34",
+    "episode_timing.py": "926d2669e20b44fff2db197471d220182111f73457a55cdfb427b59fa5cda657",
+    "evaluation_runner.py": "f8252a552136ffd5b2a3f46938837a46639b792bea3697918689852c098083b9",
+    "fresh_workers.py": "d0dfa6cd0f1bb2c9c45c47de0554a628fec9e4a207df247b802e0cff62d3606b",
+    "garment_mesh.py": "672e68bbcb93f8ded9bc7a8c48447c02bb0f964789a3c46aab9d3be51926d7e4",
+    "garment_scene.py": "5d2e8b085351766a7c32b2a7df992546f4fb19441743f0ba06258802370b7a31",
+    "geometry.py": "58fa4a09c72562ab399143dcc99ee8ba7381b143cbea352df5df5c02a61e8f32",
+    "local_episode.py": "c0adeab54f9932addf2cf82cdb0528389ce2c2752eb769a47a2c7c32e750e987",
+    "network_guard.py": "d49d3ea64d0fdc66ab5fadce34a005f7b6c3471d77ab0d6c14b42545ead741fb",
+    "offline_policy.py": "a161588c7b39e8b4ccf4c781d8aae6d31d355c1f212b47c9ad76ffbea9b22271",
+    "parameters.json": "67422aae4eeb17a97dfe58572323257b7fdd66deb2e4d6fcaf9af9de059a27f3",
+    "policy_contract.py": "e751cc0e9d29580065f872d11e780e2079944ebb1d040563ef02a22e94c2311d",
+    "policy_worker.py": "34bd6f91af15ba442234644ee96bc2cd361340f384ad7bbb03048c4500788978",
+    "robot_control.py": "efca25d895b33bd2e5cb01ac7f0b6e391b9aa78dd8856497fd394d07d80fb4ad",
+    "robot_geometry.py": "ab1e1241a40527e17ac2529c03a2f8d35e4036eda429dca538a0d06a7422e3be",
+    "robot_runner.py": "5d7a3633b76aea25ddc985abc647bdc086f874e011ae42ce315cb0fcf94cadd6",
+    "robot_scoring.py": "2e2f94f0fa68bad6cff8dd816891b66d9e76d073f7cadd19900becb31a22240e",
+    "scoring.py": "e3c2d0674b91d86d7a8ad9f0562958e96fa1faf8474da132ecaa43fc6d74cf7a",
+    "stability_round.py": "ae680577df1f46de48d8d5a19562d65471f941cf4bce93dee16c9e274ac3ab44",
+    "streaming_score.py": "97a3ace2a6352bbe4e13ebd77c5f97ff3e53a831b9e270cd9a456c4ee01c7ac6",
+    "tabletop_backend.py": "64c3db28b770e169621a322394aff157e9ee8509eaa44a6d1461163a86674fdb",
+    "tabletop_clearance.py": "fea1e1ff50e36543aea26494d8512cd5787058a601b1ebb56b51fdfdb8455655",
+    "tabletop_control.py": "4f0163c11fb97d88f3dc6066dd388c2de27b83d909679f55ea4ee1f6d3e0119e",
+    "tabletop_scene.py": "d087dac5668d2729e201ef7cc225c88385ceb7713b94e5af3731900520c91be2",
+    "tabletop_scoring.py": "380c16b11674be6aeb63d9e220d865f4d84afb9cbe3b30b05088da26f10e5abf",
+    "verify_tabletop_run.py": "1b3b5efc7fcaef3ccbbb4a78af7ee724a2a3946c0bbd4fb53136b8c8d01761e0"
+  },
+  "protected_files_identical_to_evaluated_source": true,
+  "gpu_helper_functions_and_classes_identical": true,
+  "path_resolution_preserves_existing_host_directories": true,
+  "physical_source_gate": {
+    "verification_pass": true,
+    "sources": [
+      {
+        "source": "garment_mesh.py",
+        "reference_sha256": "672e68bbcb93f8ded9bc7a8c48447c02bb0f964789a3c46aab9d3be51926d7e4",
+        "current_sha256": "672e68bbcb93f8ded9bc7a8c48447c02bb0f964789a3c46aab9d3be51926d7e4",
+        "identical": true,
+        "reviewed_transition": null
+      },
+      {
+        "source": "garment_scene.py",
+        "reference_sha256": "5d2e8b085351766a7c32b2a7df992546f4fb19441743f0ba06258802370b7a31",
+        "current_sha256": "5d2e8b085351766a7c32b2a7df992546f4fb19441743f0ba06258802370b7a31",
+        "identical": true,
+        "reviewed_transition": null
+      },
+      {
+        "source": "tabletop_scene.py",
+        "reference_sha256": "d087dac5668d2729e201ef7cc225c88385ceb7713b94e5af3731900520c91be2",
+        "current_sha256": "d087dac5668d2729e201ef7cc225c88385ceb7713b94e5af3731900520c91be2",
+        "identical": true,
+        "reviewed_transition": null
+      },
+      {
+        "source": "robot_geometry.py",
+        "reference_sha256": "ab1e1241a40527e17ac2529c03a2f8d35e4036eda429dca538a0d06a7422e3be",
+        "current_sha256": "ab1e1241a40527e17ac2529c03a2f8d35e4036eda429dca538a0d06a7422e3be",
+        "identical": true,
+        "reviewed_transition": null
+      },
+      {
+        "source": "geometry.py",
+        "reference_sha256": "58fa4a09c72562ab399143dcc99ee8ba7381b143cbea352df5df5c02a61e8f32",
+        "current_sha256": "58fa4a09c72562ab399143dcc99ee8ba7381b143cbea352df5df5c02a61e8f32",
+        "identical": true,
+        "reviewed_transition": null
+      },
+      {
+        "source": "parameters.json",
+        "reference_sha256": "67422aae4eeb17a97dfe58572323257b7fdd66deb2e4d6fcaf9af9de059a27f3",
+        "current_sha256": "67422aae4eeb17a97dfe58572323257b7fdd66deb2e4d6fcaf9af9de059a27f3",
+        "identical": true,
+        "reviewed_transition": null
+      },
+      {
+        "source": "robot_runner.py",
+        "reference_sha256": "4afd5b7cc1082e6d6aedc34e83d875bc8928bc04b8ee66e1a3debf5ce2677813",
+        "current_sha256": "5d7a3633b76aea25ddc985abc647bdc086f874e011ae42ce315cb0fcf94cadd6",
+        "identical": false,
+        "reviewed_transition": {
+          "kind": "exact_p12_to_p13_scheduler_only",
+          "unchanged_definitions": [
+            "make_environment",
+            "Measurements"
+          ],
+          "gpu_runtime_sha256": "00d88e01723e16ad476a73c79d8df8ea5056155cbd7b7d8226ca80aaedea38df",
+          "portable_path_configuration": true
+        }
+      },
+      {
+        "source": "episode_timing.py",
+        "reference_sha256": "926d2669e20b44fff2db197471d220182111f73457a55cdfb427b59fa5cda657",
+        "current_sha256": "926d2669e20b44fff2db197471d220182111f73457a55cdfb427b59fa5cda657",
+        "identical": true,
+        "reviewed_transition": null
+      }
+    ],
+    "physical_parameters_changed": false,
+    "scoring_conditions_changed": false,
+    "gate_horizons_changed": false
+  },
+  "simulation_launched": false,
+  "hosted_calls": 0
+}

@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "scope": "tabletop_three_press_studs",
+  "evaluation_date_utc": "2026-11-23",
+  "control_hz": 20,
+  "declared_actions": 6000,
+  "seed": 100,
+  "scripted_demonstration": {
+    "score": 1.0,
+    "actions": 905,
+    "seconds": 45.25,
+    "source_bundle_sha256": "75a94d8696044f6e2d08180f3fe0f28a9aae91cc16325a04c1e459df2367286c",
+    "independent_score_verified": true
+  },
+  "scripted_reproduction": {
+    "score": 1.0,
+    "actions": 895,
+    "seconds": 44.75,
+    "independent_score_verified": true
+  },
+  "model_attempt": {
+    "model": "dreamlabs/dream-1-beta",
+    "mode": "dream_live",
+    "seed": 100,
+    "executed_steps": 80,
+    "controller": "none",
+    "scripted_assistance": false,
+    "hosted_requests_started": 2,
+    "hosted_requests_completed": 1,
+    "episode_retries": 0,
+    "model_fallback": false,
+    "source_bundle_sha256": "f44ad36cd58f4dd7dceb0f5486f84c4f58369d409ad1ad4faffeec4f0055a233",
+    "error": {
+      "type": "DreamSessionExpired",
+      "message": "inference session e26dba35-3460-48b9-b8f5-3f1cad2935f0 was replaced by 0c8ef758-70e1-4734-a96f-0a7957ac9277 (expired): the episode restarted server-side"
+    }
+  },
+  "model_result": {
+    "stage": "tabletop_task",
+    "task_score": 0.0,
+    "full_task_success": false,
+    "original_hanger_task_success": false,
+    "invalid_reasons": [],
+    "retained_pairs": [],
+    "termination_reason": "model_error",
+    "max_cloth_strain": 0.043336357856377905,
+    "max_rivet_error_m": 2.11821974691526e-05,
+    "max_table_penetration_m": 0.00012153387069702148,
+    "peak_robot_normal_contact_N": 0.0,
+    "case": "fasten_three",
+    "seed": 100,
+    "bundle_sha256": "f44ad36cd58f4dd7dceb0f5486f84c4f58369d409ad1ad4faffeec4f0055a233",
+    "control_steps": 80,
+    "physics_steps_observed": 3841,
+    "runtime_seconds": 196.91218104586005,
+    "control_hz": 20,
+    "reset_mode": "fresh_native_process"
+  },
+  "model_public_inputs": {
+    "cameras": [
+      "top_cam",
+      "left_cam",
+      "right_cam"
+    ],
+    "image_size_wh": [
+      320,
+      176
+    ],
+    "joint_state_dimension": 14,
+    "order": "left j0..j5, left gripper, right j0..j5, right gripper",
+    "privileged_inputs": false,
+    "first_forwarded_time_s": 0.05,
+    "excluded_startup_samples": 1,
+    "extra_actions": 0
+  },
+  "media": {
+    "model_run.mp4": {
+      "sha256": "91ff49eda14f7fa8bf16f143b28f1be69c743b9c984317b54af28e271989cc0d",
+      "bytes": 221336
+    },
+    "demo.mp4": {
+      "sha256": "d3fab06d374003943361979f6e3f096b2dcfc7afd8bee33d97c9c63429f3513e",
+      "bytes": 2034091
+    },
+    "setup.png": {
+      "sha256": "c500c3915e03acfda2ce65ce1db03150cac44f31bc3ee15722bc8407f5f12564",
+      "bytes": 37357
+    }
+  },
+  "media_properties": {
+    "model_run.mp4": {
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "frames": 80,
+      "fps": 20,
+      "seconds": 4.0
+    },
+    "demo.mp4": {
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "frames": 905,
+      "fps": 20,
+      "seconds": 45.25
+    },
+    "setup.png": {
+      "source": "First recorded overhead frame",
+      "time_s": 0.05
+    }
+  },
+  "media_review": {
+    "three_views_inspected": true,
+    "videos_fully_decoded": true,
+    "anonymous": true,
+    "temporal_edits": false
+  },
+  "verification": {
+    "final_local_preflight_checks_passed": 9,
+    "validated_source_cpu_tests_passed": 170,
+    "scorer_shortcut_cases_passed": 13,
+    "native_20hz_interface_passed": true,
+    "native_installed_adapter_passed": true,
+    "passive_stability_seconds": 300,
+    "passive_screen_seeds": [
+      100,
+      101
+    ],
+    "passive_horizon_seed": 100,
+    "open_loop_replay": {
+      "actions": 905,
+      "exact_actions": true,
+      "invalid_reasons": [],
+      "score": 0.0
+    }
+  },
+  "versions": {
+    "isaacsim": "6.1.0.0",
+    "isaaclab": "17.0.2",
+    "isaaclab-arena": "0.3.0",
+    "yam-arena": "0.1.0",
+    "numpy": "2.3.1",
+    "torch": "2.11.0+cu128",
+    "warp-lang": "1.16.0",
+    "inspect-robots": "1.0.0",
+    "inspect-robots-yam": "0.38.0",
+    "inspect-robots-dream": "0.1.0",
+    "dreamlabs-client": "1.1.7",
+    "imageio": "2.37.2",
+    "imageio-ffmpeg": "0.6.0",
+    "scipy": "1.17.0",
+    "python": "3.12.16 (main, Nov 11 2026, 00:15:59) [Clang 23.1.3 ]"
+  },
+  "installed_source_sha256": {
+    "robot.py": "e20e595e65c611d7c444d9825524aed2e7ecec840bf6c31cbb0898a79a457c94",
+    "actions.py": "ad100980fdf19521922e3e269ea353f61ae6c6eb5502ea9795be7c3d492d1c43",
+    "constants.py": "8c44cc2e96ac491255211f2e0b807dda4c1f7547db5a6c62b809764ef69ca2c2",
+    "scene.py": "7c4081aa811b2839f908d533e12885dac7a0aaed62ff8da59e36995b50b87809"
+  },
+  "scheduler": {
+    "stable_task_id": "snap-front-shirt",
+    "mode": "exclusive",
+    "physical_gpu": 0,
+    "masked_physics_device": "cuda:0",
+    "physical_renderer": 0,
+    "multi_gpu_rendering": false,
+    "actual_devices_verified": true
+  },
+  "limitations": [
+    "Model episode interrupted by provider after first chunk; full-budget performance unmeasured.",
+    "Open-loop action replay scored zero; feedback-scripted reproduction scored one.",
+    "Original hanger scope remains incomplete.",
+    "No statistical robustness or bimanual manipulation benefit is claimed.",
+    "Hardware parameters are estimates, not measured calibration."
+  ],
+  "submission_validation": {
+    "cpu_tests_passed": 171,
+    "new_test": "Only the exact portable helper identity is accepted; a further unreviewed change is rejected.",
+    "protected_evaluated_source_files": 29,
+    "physics_policy_robot_scoring_unchanged": true,
+    "new_simulations": 0,
+    "new_hosted_calls": 0
+  }
+}

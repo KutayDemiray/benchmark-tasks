@@ -1,0 +1,43 @@
+{
+  "title": "Fasten the upper snaps of a shirt on a table",
+  "category": "Societal relatability",
+  "keywords": [
+    "flexible garment",
+    "press-studs",
+    "contact manipulation"
+  ],
+  "instruction": "Fasten the three upper front snaps of the shirt on the table. Withdraw both arms at least 3 cm and leave the shirt fastened for 3 seconds.",
+  "context": "Fastening a laid-out garment is a relevant dressing and garment-handling operation. A broad work table supports the flexible shirt during contact alignment and pressing.",
+  "setup": "Full adult long-sleeve snap-front shirt, front-up on a rigid wood-like 1.0 x 1.8 m work table with top at 0.75 m, centre (0.605, 0.12) m. Estimated body length 0.76 m, flat chest 0.56 m, sleeve span 1.56 m; 55% cotton / 45% polyester broadcloth reference, estimated fabric mass 180 g. Seven mutually compatible 12 mm metal press-stud pairs; upper targets 0,1,2 initially at x=0.28/0.36/0.44 m and y=0.12 m. Both stock YAM arms start READY. Fixed reset layout supplies nominal placket overlap and alignment. Pattern and mechanical parameters are estimates; exact geometry in setup.json/initial.usda.",
+  "scoring": "Fraction of required upper snap pairs 0,1,2 correctly seated continuously for 3 seconds after both complete robots are at least 30 mm clear of the shirt and all hardware. No wrong pairing during this interval. Shirt stays on the table (at least 98% nodal coverage), with mean nodal position drifting at most 20 mm. Invalid or damaged episodes earn zero; numerical simulation guards are documented separately. Passive support and one-snap development cases earn no full-task score.",
+  "reset_notes": "Every episode reconstructs the native scene, cloth, hardware, local rivets, stock robots and controller/contact state in a fresh process. The selected 5 mm mesh, 64-iteration configuration passed independent seed-100/101 ten-second screens and a complete seed-100 300-second passive stability check. Historical same-process and coarser-mesh failures remain preserved; no statistical robustness claim is made.",
+  "run_limit": "6,000 standard 14D actions at 20 Hz (300 seconds), including observation preroll.",
+  "fidelity": "Representative shirt with flexible surface FEM, local rivets and passive four-ball spring sockets. All snaps are mechanically compatible; no attraction, proximity latch or hidden grasp constraints. Fixed front-up start supplies placket overlap/alignment. Collar, cuffs and pockets are simplified. Fabric, pattern and snap mechanics are engineering estimates, not calibrated Wrangler hardware.",
+  "scores": "Dream-1: 0.0; DreamSessionExpired after 80 actions/4.0 s (32 preroll, 48 model). Scripted demo: 1.0 in 905 actions/45.25 s; fresh-reset reproduction: 1.0 in 895 actions/44.75 s. All at 20 Hz, seed 100. Full-budget model performance unmeasured.",
+  "media": "M-UKV42G",
+  "validation_basis": {
+    "active_completion": {
+      "full_task_demonstrations": 1,
+      "fresh_process_controller_reproductions": 1,
+      "run_limit_seconds": 300,
+      "control_hz": 20,
+      "action_dimension": 14,
+      "front_snap_count": 3,
+      "statistical_success_rate_required": false,
+      "exact_action_playback_required": false,
+      "hanger_start": null,
+      "shirt_start": "front-up on work table",
+      "released_observation_seconds": 3,
+      "robot_clearance_m": 0.03,
+      "max_com_drift_m": 0.02,
+      "other_front_snaps_required": false,
+      "required_snap_indices": [
+        0,
+        1,
+        2
+      ],
+      "scope": "tabletop_adaptation",
+      "meaning": "Local validation targets, not achieved-run counters; measured outcomes are recorded separately."
+    }
+  }
+}

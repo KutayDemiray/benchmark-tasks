@@ -1,0 +1,25 @@
+[package]
+title = "Isolated snap diagnostic"
+version = "0.1.0"
+description = "Local procedural USD and native PhysX only"
+
+[dependencies]
+"omni.kit.viewport.window" = {}
+"omni.kit.viewport.utility" = {}
+"omni.kit.usd.layers" = {}
+"omni.hydra.rtx" = {}
+"omni.physx" = {}
+"omni.physx.tensors" = {}
+"omni.kit.loop-isaac" = {}
+
+[settings]
+app.settings.persistent = false
+app.vulkan = true
+renderer.asyncInit = true
+renderer.gpuEnumeration.glInterop.enabled = false
+exts."omni.usd".locking.onClose = false
+telemetry.enableAnonymousData = false
+telemetry.enableSentry = false
+privacy.performance = false
+privacy.usage = false
+privacy.personalization = false

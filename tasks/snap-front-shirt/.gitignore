@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.log
+*.mp4
+*.png
+*.npz
+*.npy
+*.usda
+*.usd
+*.tar.gz
+.env
+.env.*
+kit-portable/
+runtime/

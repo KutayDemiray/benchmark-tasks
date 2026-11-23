@@ -1,0 +1,112 @@
+{
+  "scope": "Original component qualification provenance; regenerate runtime gates with REPRODUCTION.md.",
+  "gates": {
+    "product-gate.json": {
+      "archive_path": "product-gate.json",
+      "sha256": "8ccdc7f17dbbc01bde87eeafb2bb41e76beb511ce7b49ba7d24d798ce5a61618",
+      "report": {
+        "passed": true,
+        "scope": "Isolated single-pocket material, contact insertion, withdrawal and robot grasp/release.",
+        "full_task_success": false,
+        "product": "Vileda BaseMicro polyester pocket cover / estimated CombiSpeed Pro shaped end",
+        "cycle_run": "base-r85-fine-contact-cycle",
+        "grasp_run": "base-r84-clear-margin-table",
+        "checks": {
+          "cycle_completed": true,
+          "native_cycle_physics": true,
+          "geometric_replay": true,
+          "seated_hold_two_seconds": true,
+          "complete_withdrawal": true,
+          "contact_opening": true,
+          "passive_collapse": true,
+          "robot_grasp_release": true,
+          "robot_process_completed": true,
+          "three_decodable_camera_videos": true,
+          "same_material_and_sewn_model": true,
+          "same_initial_pocket_geometry": true,
+          "same_solver_configuration": true,
+          "same_product_and_physics_step": true
+        },
+        "seated_hold_s": 2.0,
+        "mouth_height_m": {
+          "settled": 0.001958511769771576,
+          "inserted": 0.007254320953506976,
+          "released": 0.004183982207905501
+        },
+        "evidence_sha256": {
+          "base-r85-fine-contact-cycle/manifest.json": "607a06667615a8d9d7843face86c40fbad83ce34bbebf179bcd5f7d01ba4b27e",
+          "base-r85-fine-contact-cycle/analysis.json": "b5930344b2b77830feb57bde6ce24a598f3b1bb243a464804f8ca030c45fe08c",
+          "base-r85-fine-contact-cycle/physics-audit.json": "1154e07eb203bdbd4ee503340c1c7da4decb985e72611d73574275301ebf3f58",
+          "base-r85-fine-contact-cycle/gpu-verification.json": "a8ef231297fe7ca311baab8fcaddc68ead95d1fce2a392af5788a91cef9fc299",
+          "base-r84-clear-margin-table/manifest.json": "2b126b9bdc6ee9351cbbcfd746ca13ddda14aeffcccf9e387041d8d16de60eb9",
+          "base-r84-clear-margin-table/grasp-audit.json": "9fc938b999417742c75ceff27ba51454c4b413d2b9d88099d441d6c0a64e4a93",
+          "base-r84-clear-margin-table/video-verification.json": "e05039516c7f89291ebe7182cad87b0000d38850e12d5354f29f008be2f16270",
+          "base-r84-clear-margin-table/gpu-verification.json": "c0e89596f9c9dd87e8dc22472d689481f78f5a8ce8df051dc83c3f1682a6b9ba",
+          "base-r87-archived-native-colliders/gripper-cooked-colliders.json": "2e14d1be2d5165389332290e0991b5798e374ae14ade77fdac09e04da3fd6e0d",
+          "base-r84-clear-margin-table/scene.usda": "70f94d677bca4a71ce6b48acdb49e700e8a80bfdff7f27cb717a1dc6506e2d60",
+          "base-r84-clear-margin-table/gripper-colliders.json": "d47caa4f0cb20eebae72d34113c8fb001c671b39433547f4b9038620d9305564",
+          "base-r84-clear-margin-table/versions.json": "ed0abda3e7ab8ee2f706d1cf0c73bb70d96ddec10eb7a9955b2cce6b9fe09b05",
+          "base-r84-clear-margin-table/grasp-audit-native-cooked.json": "d057949e261f59ad83337bfebe65b62152280c28ded20ba361b572ceb5ebd39a"
+        },
+        "limitations": [
+          "One pocket and laboratory supports only; no two-pocket frame or passive-lock validation.",
+          "Material and end-profile dimensions remain estimates; hardware measurements unavailable.",
+          "Earlier failed and unstable configurations are retained. This gate is not a reliability-rate claim."
+        ]
+      }
+    },
+    "mechanism-gate.json": {
+      "archive_path": "mechanism-gate.json",
+      "sha256": "f3ac17357036b7dfa77276c2cff9fc4caa1a159779cd0b0c327a42cf403e8b0b",
+      "report": {
+        "passed": true,
+        "full_task_success": false,
+        "scope": "Isolated estimated Freudenberg-family folding frame: contact lock, lifted retention, disabled-catch control and physical pedal unlock.",
+        "positive_run": "frame-r77b-restarted-unlock",
+        "negative_run": "frame-r74-snap-throat-control",
+        "checks": {
+          "completed_processes": true,
+          "identical_frame_source": true,
+          "identical_frame_geometry_and_materials": true,
+          "matched_press_and_physics": true,
+          "matched_retention_duration": true,
+          "positive_contacts_enabled": true,
+          "negative_contacts_disabled": true,
+          "both_rigid_audits_pass": true,
+          "flat_retention_entire_observed_window": true,
+          "retained_lift_over_100mm": true,
+          "negative_folds_without_catch": true,
+          "physical_pedal_unlock": true
+        },
+        "evidence_sha256": {
+          "frame-r77b-restarted-unlock/request.json": "24da3b7bdb12bcc58a8a924bd377d9c54618be9d94fd18eaba2c5d71551b42c5",
+          "frame-r77b-restarted-unlock/mechanism.json": "9a18ed3e3049b120810cc911ed0077595b7534f7331834864bc391eb3b368fba",
+          "frame-r77b-restarted-unlock/mechanism-audit.json": "53719eec85c465fbe9426fa7d045ffef9e6eaa8de99f73dcdb8d342f3e86c104",
+          "frame-r77b-restarted-unlock/manifest.json": "b1d6e11e77a4823cf96fa996888606d346de0ac4ec7e09377d4f4cdb2f52cc38",
+          "frame-r77b-restarted-unlock/gpu-verification.json": "8b677925ec809401798f52873f49caabbc5065dab1372e840ab917606a173129",
+          "frame-r77b-restarted-unlock/process.json": "5fc65c96fa5e9c2e97a1929454d63523255f65813df4dc9b45a92fb02c376e5a",
+          "frame-r74-snap-throat-control/request.json": "b4607f6780db0bcdde79ff1d6c2b893721bc87128140094f8e327d7a9c1455df",
+          "frame-r74-snap-throat-control/mechanism.json": "73a04caa23c1172df7e39473282891e25252759d0cf0194ed64b0b1980ad7a29",
+          "frame-r74-snap-throat-control/mechanism-audit.json": "e9fb18cf7800aac402819500d4f9839aeda798b4eac89173eaa2b578cf5efd50",
+          "frame-r74-snap-throat-control/manifest.json": "68664b75fc913182054b60c68b0549c0e67028092707e4ba20d26b30a7700c91",
+          "frame-r74-snap-throat-control/gpu-verification.json": "b3c4995630c4adee3b3798cf2836a8a3220b8e826ab8dde9d2777c349e4dff88",
+          "frame-r74-snap-throat-control/process.json": "734210bd35544dbf97d3290ac3c0422af0e348d98093bfdc76437fa0e9e218ca"
+        },
+        "retained_angle_deg": 1.6166419982910156,
+        "retention_window_s": [
+          10,
+          24.0
+        ],
+        "retained_lift_m": 0.14688146114349365,
+        "unlocked_angle_deg": 51.17000961303711,
+        "peak_audited_penetration_m": 0.0003876824952158131,
+        "limitations": [
+          "Laboratory force-limited press and pedal pusher; no robot or textile.",
+          "Dimensions and polypropylene compliance estimated from a related mechanism family, not measured CombiSpeed internals.",
+          "Adjacent hinge-bearing contacts excluded; handle proxy is a conservative convex outer bound.",
+          "This does not qualify the cloth, assembled task, reset or independent physics replay."
+        ]
+      }
+    }
+  }
+}

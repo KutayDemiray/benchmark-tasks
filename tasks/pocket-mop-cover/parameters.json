@@ -1,0 +1,161 @@
+{
+  "revision": "pocket-base-finite-seam-r56-frame-qualified-r53",
+  "product": "VERMOP Sprint V 40 cm holder 10049 / Sprint Tronic 40 cm cover 14084",
+  "published": {
+    "nominal_holder_length_m": 0.4,
+    "cover_fibres": "polyester/cotton/microfibre",
+    "pocket_reinforcement": "rubber strips"
+  },
+  "measured_hardware_parameters": {},
+  "estimated_probe": {
+    "coupon_length_m": 0.2,
+    "coupon_width_m": 0.14,
+    "pocket_depth_m": 0.075,
+    "initial_mouth_height_m": 0.016,
+    "mesh_spacing_m": 0.005,
+    "shell_thickness_m": 0.001,
+    "density_kg_m3": 250.0,
+    "young_modulus_pa": 2000000.0,
+    "poisson_ratio": 0.3,
+    "bend_modulus_pa": 20000.0,
+    "dynamic_friction": 0.55,
+    "elasticity_damping": 0.005,
+    "bend_damping": 0.005,
+    "contact_offset_m": 0.001,
+    "rest_offset_m": 0.0005,
+    "blade_size_m": [
+      0.1,
+      0.1,
+      0.006
+    ],
+    "blade_speed_m_s": 0.02
+  },
+  "estimated_rubber_lip": {
+    "width_m": 0.01,
+    "shell_thickness_m": 0.0015,
+    "density_kg_m3": 1100.0,
+    "young_modulus_pa": 2000000.0,
+    "bend_modulus_pa": 2000000.0,
+    "poisson_ratio": 0.45,
+    "dynamic_friction": 0.7,
+    "contact_offset_m": 0.001,
+    "rest_offset_m": 0.00075
+  },
+  "numerical": {
+    "physics_hz": 240,
+    "solver_iterations": 32,
+    "self_collision": true
+  },
+  "diagnostic_rig": {
+    "actuation": "native force-limited prismatic stage",
+    "stiffness_n_m": 2000,
+    "damping_ns_m": 30,
+    "force_limit_n": 10,
+    "blade_mass_kg": 0.15,
+    "optional_tail_weight_masses_kg": [
+      0.1,
+      0.1
+    ],
+    "valid_for_robot_demonstration": false,
+    "blade_initial_center_x_m": 0.26,
+    "blade_final_center_x_m": 0.06,
+    "initialization": "Tool starts entirely outside coupon footprint; original shaped-end runs overlapped the floating tail at reset."
+  },
+  "gate": {
+    "max_abs_edge_strain": 0.2,
+    "max_penetration_m": 0.001,
+    "seating_depth_m": 0.04,
+    "min_covered_width_fraction": 0.8,
+    "settle_speed_m_s": 0.03,
+    "release_seconds": 2.0
+  },
+  "limitations": [
+    "No physical hardware measurements have been made.",
+    "Unreinforced diagnostics use a uniform shell; reinforced diagnostics add an explicitly sewn finite rubber strip with unmeasured properties.",
+    "The force-limited linear bench stage is a disclosed laboratory test rig only, never a robot demonstration.",
+    "No full two-pocket scene, robot-installed frame, full-task scoring or full demonstration is established by these diagnostics."
+  ],
+  "completion": {
+    "full_score_demonstrations_required": 1,
+    "control_hz": 20,
+    "run_limit_actions": 2400,
+    "minimum_success_rate": null,
+    "diagnostic_nominal_trials": 3,
+    "diagnostic_varied_trials": 3,
+    "hardware_measurements_available": false,
+    "model_evaluation_authorized": false
+  },
+  "volume_reinforcement": {
+    "method": "normal extrusion, three nodal layers, middle layer sewn to textile",
+    "thickness_m": 0.0015,
+    "collision_rest_offset_m": 0,
+    "material_values": "same estimated rubber density, modulus, Poisson ratio and friction",
+    "validation": "in progress; not yet a valid product gate"
+  },
+  "alternative_product": {
+    "name": "Vileda CombiSpeed Pro 40 cm with BaseMicro 40 cm pocket cover",
+    "frame_bulk_article": "143572",
+    "frame_pack_article": "143573",
+    "cover_bulk_article": "173357",
+    "cover_pack_article": "173358",
+    "published": {
+      "nominal_frame_length_m": 0.4,
+      "cover_dry_mass_kg": 0.068,
+      "composition": "100% polyester",
+      "backing": "none"
+    },
+    "source": "Manufacturer technical sheet dated 2023-07-11, archived research/vileda/base-micro-technical.pdf",
+    "estimated": {
+      "cover_length_m": 0.44,
+      "cover_width_m": 0.14,
+      "pocket_depth_m": 0.075,
+      "effective_shell_thickness_m": 0.001
+    },
+    "validation": "qualifying isolated pocket; not yet selected for a full-task demonstration",
+    "handle": {
+      "name": "Vileda Telescopic Handle short",
+      "case_article": "111384",
+      "pack_article": "111389",
+      "published_length_range_m": [
+        0.5,
+        0.9
+      ],
+      "planned_operating_length_m": 0.5,
+      "compatibility": "Universal Vileda Professional fitting; manufacturer explicitly lists 111384 for CombiSpeed Pro.",
+      "sources": [
+        "https://www.vileda-professional.si/en/Floorcleaning/Mopping-Systems/CombiSpeed-Pro-System/Telescopic-Handle/p/Telescopic_Handle",
+        "research/vileda/clean-facility-catalogue.pdf, printed pages 9 and 25"
+      ],
+      "implementation_status": "Implemented in isolated physical frame; full scene remains gated."
+    }
+  },
+  "estimated_frame_end": {
+    "length_m": 0.1,
+    "width_m": 0.1,
+    "main_thickness_m": 0.006,
+    "nose_thickness_m": 0.001,
+    "top_bevel_length_m": 0.012,
+    "provenance": "Estimated dimensions. Manufacturer Clean Facility catalogue explicitly describes slim, angled CombiSpeed Pro frame ends; public product images archived under research/vileda.",
+    "validation": "base-r24-clean-cycle passes insertion, withdrawal and released material checks; robot release gate still unresolved"
+  },
+  "estimated_seam_variant": {
+    "height_m": 0.002,
+    "model": "Finite sewn edge faces connect distinct flat stress-free layer midplanes. Initial arch is placement deformation.",
+    "provenance": "Estimated construction geometry, not measured. Resolves the zero-thickness 180-degree seam hypothesis; needs independent insertion and robot-release qualification.",
+    "mass": "68 g full-cover mass distributed over base, pocket panels and the finite sewn-edge strips.",
+    "material_constants_changed": false,
+    "qualified": false
+  },
+  "estimated_frame_mechanism": {
+    "reference": "Freudenberg EP2838411B1 figures 3\u20135; related family, not verified CombiSpeed internal metrology.",
+    "wing_hinge_offset_m": 0.008,
+    "wing_length_m": 0.192,
+    "clip_length_m": 0.024,
+    "clip_width_m": 0.036,
+    "clip_thickness_m": 0.0015,
+    "estimated_clip_modulus_pa": 1300000000.0,
+    "groove_clearance_m": 0.00035,
+    "tongue_overlap_m": 0.008,
+    "validation": "Isolated retention, disabled-catch control and physical assisted pedal unlock passed; see mechanism-gate.json. No robot or cloth qualification."
+  }
+}

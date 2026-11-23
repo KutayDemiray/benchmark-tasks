@@ -1,0 +1,114 @@
+{
+  "task": "pocket-mop-cover",
+  "rubric_revision": "handle-held-v2",
+  "runs": {
+    "demo": {
+      "run": "base-r168-handle-held-demo",
+      "score": 1.0,
+      "success": true,
+      "invalid_reasons": [],
+      "control_steps": 1865,
+      "simulation_seconds": 93.25,
+      "physics_steps": 44760,
+      "native_wall_seconds": 1418.9361267313361,
+      "execution_termination": "controller_complete_pending_audit",
+      "assessment_termination": "success",
+      "seed": 0,
+      "launch_source_bundle_sha256": "442a68bfff0a84ada9c00b6825c7daac520aad01aa166e34f096bf0eb0cd6afc",
+      "assessment_file": "handle-held-benchmark-result.json",
+      "assessment_sha256": "8dfa6833f1868452205d5a30e2be11a4ee281d1622af8f83047b9910b0b2e4ca",
+      "material_audit_passed": true,
+      "rigid_contact_audit_passed": true,
+      "gpu_verified": true,
+      "reset_verified": true
+    },
+    "replay": {
+      "run": "base-r170-handle-held-replay",
+      "score": 1.0,
+      "success": true,
+      "invalid_reasons": [],
+      "control_steps": 1865,
+      "simulation_seconds": 93.25,
+      "physics_steps": 44760,
+      "native_wall_seconds": 1768.2757268883288,
+      "execution_termination": "action_replay_complete",
+      "assessment_termination": "success",
+      "seed": 0,
+      "launch_source_bundle_sha256": "299bdddfe2faaac5d02502b59855233edc6d2dcb21a66cf24fd9bdfc0c0aad04",
+      "assessment_file": "handle-held-benchmark-result.json",
+      "assessment_sha256": "faccf8029eb7a2e7928594c6d333d0226db50ddd218e9131bbb15b902770b89d",
+      "material_audit_passed": true,
+      "rigid_contact_audit_passed": true,
+      "gpu_verified": true,
+      "reset_verified": true
+    },
+    "model": {
+      "run": "base-r171-handle-held-dream",
+      "score": 0.0,
+      "success": false,
+      "invalid_reasons": [
+        "rigid_contact_audit"
+      ],
+      "control_steps": 2400,
+      "simulation_seconds": 120.0,
+      "physics_steps": 57600,
+      "native_wall_seconds": 3442.4344471506774,
+      "execution_termination": "action_budget",
+      "assessment_termination": "invalid",
+      "seed": 0,
+      "launch_source_bundle_sha256": "a7541d6a902adfe2596ee90973167cc0b22ea6a7ee57e47e4fb0d6bd5b092db8",
+      "assessment_file": "handle-held-benchmark-result.json",
+      "assessment_sha256": "1830fe662a4f519f139277038b1cefe5409d9f435dab1b3767f20fdad5cd2bf7",
+      "material_audit_passed": true,
+      "rigid_contact_audit_passed": false,
+      "gpu_verified": true,
+      "reset_verified": true
+    }
+  },
+  "interface_run": "base-r169-handle-held-interface",
+  "native_interface_passed": true,
+  "hosted_episodes": 1,
+  "received_chunks": 50,
+  "client_request_attempts": 99,
+  "public_trace_verified": true,
+  "decoded_model_input_images": 7200,
+  "original_released_v1_score": 0.5,
+  "original_release_problem_fixed": false,
+  "known_limitations": [
+    "Product geometry, materials and internal mechanism include documented estimates.",
+    "Handle support is inferred geometrically; contact forces are not instrumented.",
+    "The original unsupported-release instability remains outside this revised endpoint.",
+    "The genuine model episode is contact-invalid and scored zero; no retry was performed."
+  ],
+  "media_id": "M-G7NS83",
+  "archive_scope": "Paths below are relative to the external task output archive; native recordings are not bundled in Git.",
+  "original_summary": {
+    "path": "handle-held-v2-final-evidence.json",
+    "sha256": "b6b0864410347517bb2d9f76c3374170633928a24a2af38ed78a036ab6bd7d5e"
+  },
+  "artifact_sha256": {
+    "handle-held-v2-component-evidence.json": "42ea6e3061f87e1c09bc75b47282326b2d7b7d58b8f9f32e94f43e1bc36cc812",
+    "handle-held-v2-interface-parity.json": "c82c81c338503c8753768f23bff62680c517aa17659dfa97eb95dc89698d9436",
+    "handle-held-v2-replay-contract.json": "79dd1205e5693de8c5d0a82b75fbcd2230140c2f9413bc589d8f814187d5b1e4",
+    "dream-preflight.json": "72105181f84026966698f5954df7959f466047ab90ca80291277721c347444c1",
+    "cpu-tests-current.json": "3933eacaf66ea5f1393b138ea792724df9f82b2470e1fbd8a14e7045565e5113",
+    "hosted-dream-attempt.json": "5cc1f8286cf72f30bf039b8273f147ce32b4784076f4c2c0efbc7bea2e35256b"
+  },
+  "media": {
+    "demo.mp4": {
+      "path": "submission-media-handle-held-v2/demo.mp4",
+      "bytes": 7316787,
+      "sha256": "35c4ad61499a97e57bebf9d92cb470280260835f103610706ef62395ad31a09f"
+    },
+    "model_run.mp4": {
+      "path": "submission-media-handle-held-v2/model_run.mp4",
+      "bytes": 8071176,
+      "sha256": "5842f68493e2df926fe89533c41433e0252d635911e71fcf0c16e4eec9d3c7b2"
+    },
+    "setup.png": {
+      "path": "submission-media-handle-held-v2/setup.png",
+      "bytes": 49309,
+      "sha256": "b1e50496092a0c0eb3afe8a5ad0ca66ed276b4d59378e395b4b72bf63c8f33ae"
+    }
+  }
+}

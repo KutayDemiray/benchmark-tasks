@@ -1,0 +1,37 @@
+{
+  "title": "Fit a pocket mop cover onto its folding frame",
+  "category": "Societal relatability",
+  "keywords": [
+    "flexible pockets",
+    "folding mop frame",
+    "textile installation"
+  ],
+  "instruction": "Fit the cover onto the folding frame by seating both ends in the sewn pockets and opening and locking the frame flat. Holding only the handle, lift until the entire cover is at least 10 cm above the table, move the head at least 10 cm sideways, return within 1 cm of its initial lifted position, and hold for 2 seconds with both pockets retained. Put the assembled mop on the table, withdraw both hands at least 2 cm from it, and leave the cover still for at least 2 seconds.",
+  "setup": "stock bimanual YAM station; estimated CombiSpeed Pro 400 x 100 mm folding head initially flat and contact-locked, separate 440 x 140 mm BaseMicro textile cover with two 75 mm sewn pockets on the table. In the translated table coordinate frame, bridge origin is (-.100, -.180, .004) m and cover center is (-.080, -.040, .000) m; the initial cloth base is 2 mm above the tabletop. The compatible 50 cm handle starts at 70 degrees about its gimbal Y axis and settles physically. No laboratory fixture in this scene.",
+  "scoring": "0.25 for each correctly oriented pocket enclosing at least 40 mm of its frame end across 80% of the 100 mm width for 2 s with the textile ungripped. Full credit additionally requires flat wings within 3 degrees without robot wing support, all cloth at least 100 mm clear of the table, head translation at least 100 mm, return within 10 mm and hold 2 s, then set down over the table and release with hands at least 20 mm clear and native plus finite-difference cloth speed at most .03 m/s for 2 s. Any material strain above 20%, penetration or seam gap above 1 mm invalidates the episode. Laboratory and bare-frame diagnostics cannot score.",
+  "run_limit": "2400 ordinary 14-dimensional YAM joint/gripper target actions at 20 Hz (120 seconds of simulated time, including the model camera-history preroll).",
+  "reset_notes": "Before recording, restore all cloth node positions and velocities, the free frame root, every passive frame joint and velocity, and the stock robot ready state. Reconstruct the same declared layout for every episode with seed 0. Scoring history and the action counter start empty after reset. Physics pauses during model inference; inference wall time does not add simulation steps.",
+  "fidelity": "Estimated Vileda CombiSpeed Pro / BaseMicro model using native PhysX surface FEM, shared-vertex sewn boundaries, passive geared wings and a physical contact rocker/elastic clip. Exact product internals and textile response are unmeasured. No cloth attachment, capture, proximity seating or state-dependent lock is used. The stock YAM geometry, limits, gains and gravity compensation are preserved. The script reads native body poses for feedback and sends ordinary robot actions. Dream receives only the instruction, three 320 x 176 RGB camera streams and measured 14D joint/gripper state. Kit PhysX and the installed ovphysx backend have separate qualification evidence and are never mixed within an episode. A full SDK episode requires its matching material, mechanism and stock-grasp gates; script, replay and model then share the same scene, reset, physics, action budget, scorer and recorder.",
+  "scores": "Best original full-task scripted result: independently audited 0.5 (R123; 2216 actions, 110.8 seconds). No released-v1 full-score demonstration or audited fresh-process action replay yet. Dream-1: not run; no measured model score. Reduced SDK settling and latch diagnostics do not count as task success.",
+  "media": null,
+  "provisional": true,
+  "validation_status": "released_endpoint_physics_unresolved_kit_native_interface_passed_sdk_qualification_and_hosted_pending",
+  "submission_ready": false,
+  "validation_evidence": {
+    "best_released_scripted_run": "base-r123-fixed-arm-opening",
+    "best_released_scripted_score": 0.5,
+    "native_kit_interface_run": "base-r167-local-interface",
+    "native_kit_interface_passed": true,
+    "sdk_insertion_run": "base-r163-sdk-cycle",
+    "sdk_insertion_independent_audit_passed": true,
+    "sdk_stock_grasp_qualified": false,
+    "full_sdk_native_interface_validated": false,
+    "released_score_one_demonstrated": false,
+    "fresh_process_full_score_replay": false,
+    "hosted_model_run": null,
+    "hosted_model_score": null,
+    "cpu_tests_passed": 149,
+    "physics_blocker": "Kit covered-frame final placement overturns; isolated SDK passive settling passes, but the full shared SDK scene is not yet qualified.",
+    "current_execution_blocker": "No scheduled GPU capacity: final three bounded admission windows expired before the stock-grasp/camera repeat started. No active task simulator; no hosted calls."
+  }
+}

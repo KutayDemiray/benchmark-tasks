@@ -40,3 +40,12 @@ prerequisites; this source folder does not install them.
 Cleanup does not commit, push, create a PR or verify the signed-in task board.
 The existing media ID M-G7NS83 is retained; board eligibility and the final
 uploaded-media check remain part of the separate submission step.
+
+## PR metadata correction
+
+The submission validator reported limits of 500 characters for `fidelity` and
+300 for `scores`. Those two display summaries were shortened after the cleanup
+checks above. The full descriptions and actual results remain in PRODUCT.md,
+README.md and evaluation-evidence.json. No Python source, physics, scoring rule
+or media ID changed; the recorded 158-test source hashes still match. Current
+field lengths and the updated task metadata hash are in package-validation.json.

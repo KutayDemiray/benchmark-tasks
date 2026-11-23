@@ -200,6 +200,24 @@
     "verify_videos.py": "c1dd03701e24bc16ab0edd5ac18c6697fdad522e2be4299c8e71d87e9f6a1205",
     "wrist_tracking.py": "69cfb67fe3e324a3a9da134b98e0fe78d72c54f2e1dcf4ccaee6e9fc05e88d20"
   },
-  "task_json_sha256": "2d159a6a8bedc795672bac71d6baa00fb3fffeda2e3467bf7a11348fd8a63f08",
-  "parameters_sha256": "8fe307a67c1e63634f4bed2bf8d54c9a630850d7e6c1add5211ef893cc09fa3f"
+  "task_json_sha256": "b1bc40437f51626b0b13cffc722ccacd6d67fc7da8d21f56a1acc1dd79de502c",
+  "parameters_sha256": "8fe307a67c1e63634f4bed2bf8d54c9a630850d7e6c1add5211ef893cc09fa3f",
+  "cleanup_task_json_sha256": "2d159a6a8bedc795672bac71d6baa00fb3fffeda2e3467bf7a11348fd8a63f08",
+  "metadata_validation": {
+    "date": "2026-11-23",
+    "changed_fields": [
+      "fidelity",
+      "scores"
+    ],
+    "character_counts": {
+      "fidelity": 436,
+      "scores": 194
+    },
+    "limits": {
+      "fidelity": 500,
+      "scores": 300
+    },
+    "passed": true,
+    "scope": "Shortened display summaries for PR ingestion; full fidelity details and all actual scores retained in documentation/evidence. Python source and physics/scoring definitions unchanged."
+  }
 }

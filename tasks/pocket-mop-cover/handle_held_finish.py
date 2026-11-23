@@ -1,4 +1,8 @@
-"""Version 2: verify installation while one ordinary gripper holds only the handle."""
+"""Simulation v2: verify installation while one gripper holds only the handle.
+
+The 2 mm geometry tests are conservative simulation contact/support proxies,
+not physical-trial measurements. See REAL_TRIAL_SCORING.md for visible checks.
+"""
 
 from dataclasses import asdict, dataclass, replace
 import math

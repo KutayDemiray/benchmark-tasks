@@ -1,5 +1,9 @@
 # Reproduction
 
+This guide reproduces the simulation. For physical-trial judging, use
+[REAL_TRIAL_SCORING.md](REAL_TRIAL_SCORING.md); its observable checks do not
+require native mesh/contact data. Original simulation evidence is unchanged.
+
 ## Environment and paths
 
 Use the installed native YAM/Arena environment used for evaluation; no dependency

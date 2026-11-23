@@ -3,7 +3,7 @@
 The user authorized a revised endpoint: finish holding only the handle after the
 complete lift/translation/return/hold proof. Final unsupported placement and
 resting-cloth settling are removed. Scene, reset, physical model, stock robot,
-material/contact invalidation thresholds, 2,400-action budget and camera contract
+simulation material/contact invalidation thresholds, 2,400-action budget and camera contract
 are unchanged. The active backend is the already-qualified Kit physics.
 
 The fresh R168 demonstration independently scores **1.0** in 1,865 actions
@@ -25,7 +25,11 @@ No privileged feedback or scripted assistance reaches the policy.
 Historical R123 remains 0.5 under released-v1; its retrospective screen is not
 qualifying evidence. Original records and metadata are preserved. Local evidence
 and anonymous media preparation are complete. Media ID M-G7NS83 is present in
-task.json; PR submission remains separate.
+task.json. The scoring-procedure review revision preserves these recordings.
+
+These are simulated evaluations. [REAL_TRIAL_SCORING.md](REAL_TRIAL_SCORING.md)
+separates physical-trial judging from the numerical/substep audits used here.
+The current clarification does not re-score or overwrite the archived episodes.
 
 ## Execute and assess
 

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="440" viewBox="0 0 960 440" role="img" aria-labelledby="title desc">
+<title id="title">Pocket depth, width and layer references</title>
+<desc id="desc">A top view marks the first forty millimetres of a frame end across its central eighty millimetres. A side view shows the rigid end between the cover base and sewn pocket flap. These are judging references, not added restraints. The schematic is not to scale.</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" fill="#263648"/></marker></defs>
+<rect width="960" height="440" fill="#fff"/>
+<g font-family="Arial, sans-serif" fill="#172838">
+<text x="24" y="30" font-size="20" font-weight="bold">Judge insertion and the correct layer relationship</text>
+<text x="24" y="54" font-size="14">Schematic only; measure the real frame with a ruler. No support fixture is added.</text>
+<text x="35" y="88" font-size="17" font-weight="bold">Top view of one frame end</text>
+<rect x="90" y="125" width="305" height="235" fill="#eceff2" stroke="#263648" stroke-width="2"/>
+<rect x="90" y="148.5" width="190" height="188" fill="#c8e7f1"/>
+<path d="M280,115 V370" stroke="#12668c" stroke-width="3" stroke-dasharray="7,5"/>
+<path d="M90,108 H280" stroke="#263648" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+<text x="148" y="102" font-size="15">40 mm</text>
+<path d="M60,148.5 V336.5" stroke="#263648" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+<text x="44" y="270" font-size="15" transform="rotate(-90 44 270)">central 80 mm</text>
+<text x="102" y="206" font-size="15">This region must lie</text><text x="102" y="228" font-size="15">inside the sewn pocket</text>
+<path d="M305,295 H370" stroke="#263648" marker-end="url(#arrow)"/>
+<text x="300" y="321" font-size="14">toward centre</text>
+<text x="86" y="383" font-size="14">tip</text><text x="220" y="383" font-size="14">depth-reference line</text>
+<text x="90" y="407" font-size="14">Full width: 100 mm; 10 mm margins on each side.</text>
+<text x="500" y="88" font-size="17" font-weight="bold">Side view: tip inside the pocket</text>
+<path d="M820,170 H540 V310 H890" stroke="#12668c" stroke-width="7" fill="none"/>
+<rect x="558" y="210" width="332" height="45" fill="#eceff2" stroke="#263648" stroke-width="2"/>
+<path d="M740,195 V270" stroke="#12668c" stroke-dasharray="6,4" stroke-width="2"/>
+<text x="570" y="158" font-size="15">sewn flap above</text>
+<text x="620" y="239" font-size="15">rigid frame end</text>
+<text x="620" y="338" font-size="15">cover base below</text>
+<text x="810" y="141" font-size="14">open mouth</text>
+<text x="502" y="362" font-size="14">The mouth passes the 40 mm reference toward the centre.</text>
+<text x="502" y="385" font-size="14">Side views must prove enclosure, not loose fabric draping.</text>
+<text x="502" y="408" font-size="14">Upper/lower layers are separated here for illustration.</text>
+</g></svg>

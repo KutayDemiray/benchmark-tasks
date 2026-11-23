@@ -8,14 +8,14 @@
   ],
   "instruction": "Fit the cover onto the folding frame by seating both ends in the sewn pockets and opening and locking the frame flat. Holding only the handle with one hand, lift until the entire cover is at least 10 cm above the table, move the head at least 10 cm sideways, return within 1 cm of its initial lifted position, and hold for 2 seconds with both pockets retained. Finish holding the handle with the other arm at least 2 cm clear of the assembly. Keep the cloth and all non-handle frame parts unsupported by either robot during the retention demonstration.",
   "setup": "stock bimanual YAM station; estimated CombiSpeed Pro 400 x 100 mm folding head initially flat and contact-locked, separate 440 x 140 mm BaseMicro textile cover with two 75 mm sewn pockets on the table. In the translated table coordinate frame, bridge origin is (-.100, -.180, .004) m and cover center is (-.080, -.040, .000) m; the initial cloth base is 2 mm above the tabletop. The compatible 50 cm handle starts at 70 degrees about its gimbal Y axis and settles physically. No laboratory fixture in this scene.",
-  "scoring": "Handle-held-v2: 0.25 for each correctly oriented pocket enclosing at least 40 mm of its frame end across 80% of the 100 mm width for 2 s with the textile ungripped. Full reward 1.0 requires both pockets retained, wings flat within 3 degrees, all cloth at least 100 mm above the table, head translation at least 100 mm, return within 10 mm and hold for 2 s while supported only by the same hand on the handle. Throughout this functional proof, every non-handle frame part must remain at least 2 mm from all robot links, the other entire arm must remain at least 20 mm from the assembly, and both holding finger pads must remain adjacent to the handle within 2 mm at every native state. Interrupted support, a hand change or loss of lift resets the functional proof. Final table placement and releasing the handle are not required. Strain above 20%, penetration or seam gap above 1 mm, nonfinite states, hidden constraints, laboratory fixtures or exceeding 2400 actions invalidates the episode.",
+  "scoring": "0.25 per correctly oriented pocket enclosing at least 40 mm of its frame end across the central 80 mm of width for 2 s with the textile ungripped. Full score 1.0 requires both pockets retained, frame locked and flat within 3 degrees, all cloth lifted at least 100 mm, head translated at least 100 mm, returned within 10 mm and held 2 s, supported only by the same hand on the handle; the other entire arm stays at least 20 mm clear. Support, seating or lift interruptions reset the proof. Finish holding the handle. Real trials use calibrated video, ruler references and close-up inspection per REAL_TRIAL_SCORING.md. New visible cloth/seam/pocket or frame damage, unauthorized attachments/assistance, or exceeding the budget gives 0; insufficient evidence is unscorable. Native strain, penetration, seam-gap and substep contact thresholds are simulation-only validity checks, not real-trial measurements.",
   "run_limit": "2400 ordinary 14-dimensional YAM joint/gripper target actions at 20 Hz (120 seconds of simulated time, including the model camera-history preroll).",
   "reset_notes": "Before recording, restore all cloth node positions and velocities, the free frame root, every passive frame joint and velocity, and the stock robot ready state. Reconstruct the same declared layout for every episode with seed 0. Scoring history and the action counter start empty after reset. Physics pauses during model inference; inference wall time does not add simulation steps.",
-  "fidelity": "Estimated CombiSpeed Pro/BaseMicro model with native Kit PhysX surface FEM, shared-vertex seams, passive geared wings and a contact latch. Product internals and textile response are unmeasured. Stock YAM is unchanged. No cloth attachment or proximity lock. Handle support is inferred geometrically, not force-measured. Unsupported final release remains unqualified; this task finishes holding the handle. See PRODUCT.md for assumptions.",
+  "fidelity": "Estimated CombiSpeed Pro/BaseMicro model; textile response and mechanism internals are unmeasured. Native Kit PhysX surface FEM, shared-vertex seams, passive geared wings and contact latch; stock YAM unchanged. No cloth attachment or proximity lock. Numerical strain/contact audits are simulation-only. Real trials use visible integrity and handle-only retention; no hardware trial has been performed. Unsupported final release remains unqualified.",
   "scores": "Demo: 1.0 (R168; 1865 actions, 93.25 s). Fresh-process replay: 1.0 (R170). Dream-1: 0.0 (R171; 2400 actions, 120 s; no pocket installed; invalid self-intersections). Historical released-v1: 0.5.",
   "media": "M-G7NS83",
   "provisional": false,
-  "validation_status": "evaluation_complete_media_id_present_awaiting_pr",
+  "validation_status": "scoring_review_revision_prepared",
   "submission_ready": true,
   "validation_evidence": {
     "best_released_scripted_run": "base-r123-fixed-arm-opening",
@@ -69,13 +69,17 @@
     "python_modules_parsed": 140,
     "local_evaluation_complete": true,
     "remaining_submission_steps": [
-      "Confirm task-board eligibility and uploaded media, review the task-only diff, and open the PR as a separate action."
+      "Submit this scoring revision on the existing PR and await reviewer reassessment."
     ],
     "submission_media_directory": "submission-media-handle-held-v2",
     "final_evidence": "evaluation-evidence.json",
     "visual_review_complete": true,
     "historical_native_interface_run": "base-r167-local-interface",
-    "package_validation": "PACKAGE_VALIDATION.md"
+    "package_validation": "PACKAGE_VALIDATION.md",
+    "real_trial_scoring_procedure": "REAL_TRIAL_SCORING.md",
+    "real_trial_hardware_validation": false,
+    "scoring_revision_evidence": "scoring-revision-evidence.json",
+    "current_validation": "scoring-revision-validation.json"
   },
   "rubric_revision": "handle-held-v2",
   "local_evaluation_complete": true

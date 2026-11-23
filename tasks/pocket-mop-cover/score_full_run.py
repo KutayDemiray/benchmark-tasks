@@ -1,4 +1,8 @@
-"""Score a complete robot-cover recording only after both independent audits."""
+"""Score a simulated robot-cover recording after its native validity audits.
+
+Numerical strain/contact rejection is simulation-only; physical-trial judging
+is specified separately in REAL_TRIAL_SCORING.md. The result API is unchanged.
+"""
 
 from task_paths import OUTPUT_ROOT
 

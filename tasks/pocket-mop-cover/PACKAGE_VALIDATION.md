@@ -1,5 +1,10 @@
 # Submission package cleanup validation
 
+This is the historical pre-review cleanup checkpoint. The current real-trial
+scoring revision is documented in [SCORING_REVISION.md](SCORING_REVISION.md) and
+its current manifest is [scoring-revision-validation.json](scoring-revision-validation.json).
+Original hashes below describe the earlier checkpoint.
+
 Validated on 2026-11-23 using the existing native environment, without modifying
 installed dependencies or the stock YAM robot.
 
@@ -47,5 +52,5 @@ The submission validator reported limits of 500 characters for `fidelity` and
 300 for `scores`. Those two display summaries were shortened after the cleanup
 checks above. The full descriptions and actual results remain in PRODUCT.md,
 README.md and evaluation-evidence.json. No Python source, physics, scoring rule
-or media ID changed; the recorded 158-test source hashes still match. Current
-field lengths and the updated task metadata hash are in package-validation.json.
+or media ID changed; the recorded 158-test source hashes still match. The field lengths and task metadata hash at that checkpoint are preserved in
+package-validation.json; the current revision has its own manifest above.

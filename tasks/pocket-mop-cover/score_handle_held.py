@@ -1,4 +1,8 @@
-"""Assess an explicitly versioned handle-held endpoint after complete native audits."""
+"""Assess the handle-held simulation endpoint after complete native audits.
+
+Native validity failures still reject simulated evidence. They are not
+real-trial measurement requirements; see REAL_TRIAL_SCORING.md.
+"""
 
 from task_paths import OUTPUT_ROOT
 

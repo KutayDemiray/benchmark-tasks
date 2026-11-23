@@ -35,9 +35,12 @@ The active endpoint is **handle-held-v2**. The robot opens the frame, seats both
 ends in the sewn pockets, and opens and locks the frame flat. Holding only the
 handle, it lifts all cloth at least 100 mm above the table, translates the head
 at least 100 mm, returns within 10 mm and holds for two seconds. It finishes
-holding the handle. The other entire arm stays at least 20 mm clear; non-handle
-frame parts stay at least 2 mm from every robot link throughout the retention
-proof. Exact conditions are in [HANDLE_HELD_V2.md](HANDLE_HELD_V2.md).
+holding the handle. The other entire arm stays at least 20 mm clear; the cloth
+and non-handle frame parts receive no extra support. In simulation, conservative
+2 mm contact/separation tests enforce that support condition. Physical judges
+use visible support and close-up inspection as described in
+[REAL_TRIAL_SCORING.md](REAL_TRIAL_SCORING.md). Exact outcome conditions are in
+[HANDLE_HELD_V2.md](HANDLE_HELD_V2.md).
 Cleaning, water, dirt and wringing are outside this task.
 
 The matching isolated insertion/grasp and passive mechanism gates pass. Fresh
@@ -54,7 +57,7 @@ bare-frame control stays flat. This limitation is preserved, and is not a claim
 about real mop behavior. The held endpoint does not qualify unsupported final
 placement. [RELEASE_DIAGNOSTIC.md](RELEASE_DIAGNOSTIC.md) records that investigation.
 
-The held revision preserves the material, geometry, solver and physical
+The held revision preserves the material, geometry, solver and simulation-only
 invalidation thresholds. Passing penetration and strain bounds alone does not
 establish calibrated passive dynamics. Material changes require matching fresh
 qualification. [MATERIAL_MODEL.md](MATERIAL_MODEL.md) records an earlier damping

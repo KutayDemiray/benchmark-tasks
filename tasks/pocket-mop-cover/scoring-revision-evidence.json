@@ -1,0 +1,137 @@
+{
+  "date": "2026-11-23",
+  "scope": "Read-only review of existing simulated recordings for a physical judging procedure; not a hardware trial or a new simulation assessment.",
+  "real_trial_protocol": "real-trial-v1",
+  "simulated_endpoint": "handle-held-v2",
+  "hardware_trial_performed": false,
+  "new_simulation_runs": 0,
+  "new_hosted_attempts": 0,
+  "original_assessments_unchanged": true,
+  "media_id": "M-G7NS83",
+  "source_artifact_sha256": {
+    "base-r168-handle-held-demo/handle-held-benchmark-result.json": "8dfa6833f1868452205d5a30e2be11a4ee281d1622af8f83047b9910b0b2e4ca",
+    "base-r168-handle-held-demo/handle-held-outcomes.jsonl": "a369d4e887fecedd389036cd8795f6e9f1d0c956d3fa6fa91dc0b4fbabc75971",
+    "base-r170-handle-held-replay/handle-held-benchmark-result.json": "faccf8029eb7a2e7928594c6d333d0226db50ddd218e9131bbb15b902770b89d",
+    "base-r170-handle-held-replay/handle-held-outcomes.jsonl": "71e80001c7dccee2bae23ff9f2f67b14627c0ae718831bb6099e3ed23cfbb6c0",
+    "base-r171-handle-held-dream/handle-held-benchmark-result.json": "1830fe662a4f519f139277038b1cefe5409d9f435dab1b3767f20fdad5cd2bf7",
+    "base-r171-handle-held-dream/steps.jsonl": "f237f388e082201b2747ecc64fd8f3252925b8af8c763a8c1388cc6076f4b9ba",
+    "submission-media-handle-held-v2/demo.mp4": "35c4ad61499a97e57bebf9d92cb470280260835f103610706ef62395ad31a09f",
+    "submission-media-handle-held-v2/model_run.mp4": "5842f68493e2df926fe89533c41433e0252d635911e71fcf0c16e4eec9d3c7b2",
+    "submission-media-handle-held-v2/setup.png": "b1e50496092a0c0eb3afe8a5ad0ca66ed276b4d59378e395b4b72bf63c8f33ae"
+  },
+  "runs": {
+    "demo": {
+      "run": "base-r168-handle-held-demo",
+      "original_simulation_score": 1.0,
+      "invalid_reasons": [],
+      "actions": 1865,
+      "end_time_s": 93.25,
+      "simulation_validity_passed": true,
+      "real_trial_score": null,
+      "real_trial_status": "not_performed",
+      "measurement_domain": "native simulation; no ruler measurements inferred from video",
+      "native_measurements": {
+        "proof_start_step": 1739,
+        "proof_video_time_s": 86.95,
+        "maximum_translation_step": 1785,
+        "maximum_translation_video_time_s": 89.25,
+        "return_hold_start_step": 1818,
+        "return_hold_start_video_time_s": 90.9,
+        "first_success_step": 1857,
+        "first_success_video_time_s": 92.85,
+        "first_success_interval_end_s": 92.9,
+        "minimum_cloth_height_m": 0.27261289954185486,
+        "maximum_horizontal_displacement_m": 0.1247507207898978,
+        "final_return_error_m": 0.0005335145160022292,
+        "recorded_return_hold_s": 2.000000000000001,
+        "maximum_wing_angle_deg": 1.882249116897583,
+        "minimum_other_arm_clearance_m": 0.07794458265660886,
+        "minimum_non_handle_clearance_m": 0.0020006157253215084,
+        "pocket_qualification_throughout_proof": true,
+        "holding_side": [
+          "right"
+        ]
+      },
+      "measurement_notes": [
+        "Pocket depth/width fields are binary threshold encodings from the archived geometric containment test, not continuous measured insertion depths.",
+        "Contact margins and support certification use native substeps; exported RGB video does not independently resolve these values.",
+        "A video frame at step/20 depicts its recorded control interval; native interval completion is (step+1)/20."
+      ]
+    },
+    "replay": {
+      "run": "base-r170-handle-held-replay",
+      "original_simulation_score": 1.0,
+      "invalid_reasons": [],
+      "actions": 1865,
+      "end_time_s": 93.25,
+      "simulation_validity_passed": true,
+      "real_trial_score": null,
+      "real_trial_status": "not_performed",
+      "measurement_domain": "native simulation; no ruler measurements inferred from video",
+      "native_measurements": {
+        "proof_start_step": 1740,
+        "proof_video_time_s": 87.0,
+        "maximum_translation_step": 1785,
+        "maximum_translation_video_time_s": 89.25,
+        "return_hold_start_step": 1818,
+        "return_hold_start_video_time_s": 90.9,
+        "first_success_step": 1857,
+        "first_success_video_time_s": 92.85,
+        "first_success_interval_end_s": 92.9,
+        "minimum_cloth_height_m": 0.26268139481544495,
+        "maximum_horizontal_displacement_m": 0.12481521118656685,
+        "final_return_error_m": 0.0004755476495999793,
+        "recorded_return_hold_s": 2.000000000000001,
+        "maximum_wing_angle_deg": 1.8952664136886597,
+        "minimum_other_arm_clearance_m": 0.07779105091238524,
+        "minimum_non_handle_clearance_m": 0.0020174801660938213,
+        "pocket_qualification_throughout_proof": true,
+        "holding_side": [
+          "right"
+        ]
+      },
+      "measurement_notes": [
+        "Pocket depth/width fields are binary threshold encodings from the archived geometric containment test, not continuous measured insertion depths.",
+        "Contact margins and support certification use native substeps; exported RGB video does not independently resolve these values.",
+        "A video frame at step/20 depicts its recorded control interval; native interval completion is (step+1)/20."
+      ]
+    },
+    "model": {
+      "run": "base-r171-handle-held-dream",
+      "original_simulation_score": 0.0,
+      "invalid_reasons": [
+        "rigid_contact_audit"
+      ],
+      "actions": 2400,
+      "end_time_s": 120.0,
+      "simulation_validity_passed": false,
+      "real_trial_score": null,
+      "real_trial_status": "not_performed",
+      "measurement_domain": "native simulation; no ruler measurements inferred from video",
+      "native_diagnostic_pockets_ever_seated": 0,
+      "measurement_notes": [
+        "Seating diagnostic is native simulator data, not a replacement valid-physics benchmark assessment. The original contact-invalid zero is preserved."
+      ]
+    }
+  },
+  "visual_review": {
+    "source": "Existing exported RGB montages sampled and viewed; not reconstructed or re-rendered simulation.",
+    "demo_timestamps_s": [
+      86.95,
+      92.85
+    ],
+    "model_timestamps_s": [
+      119.95
+    ],
+    "visible_findings": [
+      "Demo views show a lifted covered head with the right hand at the handle.",
+      "Model final views show the cover and frame still separate."
+    ],
+    "not_established_by_rgb_alone": [
+      "40 mm insertion across the entire central 80 mm with verified upper/lower pocket layers.",
+      "A hardware before/after inspection of both cloth faces and every sewn boundary.",
+      "Calibrated centimetre-scale displacement, angle and whole-arm clearance bounds throughout motion."
+    ],
+    "physical_worksheet_status": "Cannot be certified as a real trial from these existing images; native simulation evidence is reported separately."
+  }
+}

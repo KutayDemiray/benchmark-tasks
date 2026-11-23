@@ -3,13 +3,28 @@
 Install both sewn pockets, open and physically lock the frame flat, then prove
 retention while holding only the handle: lift all cloth 100 mm above the table,
 move the head 100 mm, return within 10 mm and hold for 2 s. Finish holding the
-handle. The other entire arm stays 20 mm clear; all non-handle frame parts stay
-2 mm clear of every robot link during the retention proof.
+handle. The other entire arm stays 20 mm clear; the cloth and non-handle frame
+parts receive no robot or external support during the retention proof.
 
 The active task is **handle-held-v2**, with stock bimanual YAM and native Kit
 PhysX. [task.json](task.json) contains the submitted instruction, initial layout,
-partial credit, physical invalidation limits and 2,400-action budget at 20 Hz.
-[HANDLE_HELD_V2.md](HANDLE_HELD_V2.md) explains the exact endpoint.
+partial credit and 2,400-action budget at 20 Hz.
+[HANDLE_HELD_V2.md](HANDLE_HELD_V2.md) explains the endpoint and separates
+observable task conditions from additional simulation validity checks.
+
+## How a real trial is judged
+
+[REAL_TRIAL_SCORING.md](REAL_TRIAL_SCORING.md) provides the video, ruler, close-up
+inspection and timing procedure, including a measurement diagram. Complete
+[REAL_TRIAL_WORKSHEET.md](REAL_TRIAL_WORKSHEET.md) to record pocket seating, cloth
+integrity, clearance and the handle-only motion proof. New visible damage
+invalidates a physical trial; transient mesh strain, numerical penetration,
+1 mm seam gaps and 2 mm contact-proximity tests are **simulation-only**, not
+real-trial requirements. Missing evidence is unscorable, not an assumed pass.
+
+The physical judging protocol has not been tested on hardware.
+[SCORING_REVISION.md](SCORING_REVISION.md) maps it to the existing simulation
+evidence and explicitly identifies measurements unavailable from video alone.
 
 ## Completed evaluation
 
@@ -43,7 +58,8 @@ are prepared under `$OUT/submission-media-handle-held-v2`. Both videos are below
 [Evaluation evidence](evaluation-evidence.json) records original artifact hashes,
 run identifiers, scores, termination and media hashes. Raw recordings, native
 state chunks, inference logs and immutable launch sources remain in the external
-output archive; they are not embedded in Git. The PR remains a separate action.
+output archive; they are not embedded in Git. This scoring-procedure revision
+uses the same media ID and preserves all original evaluation records.
 
 ## Reproduce and review
 
@@ -54,7 +70,8 @@ are explicit. [DREAM_EVALUATION.md](DREAM_EVALUATION.md) gives the full-task,
 replay, interface, hosted-evaluation, independent scoring and media commands.
 All simulator launches use scheduler ID `pocket-mop-cover`.
 
-The cleanup CPU suite passes 158 tests from a separate source and output directory.
+The CPU suite passes 158 tests from a separate source and output directory.
+The current review-revision results are in [SCORING_REVISION.md](SCORING_REVISION.md).
 It exercises geometry, false-success cases, scoring, recording, the offline
 Dream interface and scheduler failure checks. See
 [PACKAGE_VALIDATION.md](PACKAGE_VALIDATION.md) for the cleanup's checks and limits.
@@ -73,9 +90,11 @@ implementation select the evaluated model.
 There are no cloth attachments, proximity seating triggers, runtime object-pose
 writes or laboratory fixtures in the full task. The script uses privileged
 native poses to choose ordinary robot targets. Handle support is inferred from
-geometry, sustained assembly lift and exclusion of other load paths; contact
-forces are not instrumented. Pocket enclosure is measured at 20 Hz, with
-material/contact/support audits covering every native substep.
+native geometry, sustained assembly lift and exclusion of other load paths in
+simulation; contact forces are not instrumented. Pocket enclosure is measured
+at 20 Hz, with simulation material/contact/support audits covering every native
+substep. Their 2 mm geometry margins are conservative simulation proxies for
+the visible handle-only support condition, not physical-trial gap measurements.
 
 The original released-v1 endpoint required unsupported final table placement.
 Its best complete R123 score remains 0.5 and its passive overturning issue is

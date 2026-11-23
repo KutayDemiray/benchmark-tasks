@@ -1,7 +1,9 @@
-"""Deterministic outcome rubric; not yet connected to a qualified full scene.
+"""Simulation outcome reducer with additional native numerical validity guards.
 
-Inputs must come from recorded native geometry/contact measurements. Controller
-phase names and commands are deliberately absent. Diagnostic rigs cannot score.
+Inputs are recorded geometry/contact measurements, never controller phase names.
+Strain, penetration and seam-gap thresholds are simulation-only safeguards.
+Physical trials use REAL_TRIAL_SCORING.md, not native Observation quantities.
+The released-v1 core is also reused by the handle-held simulation scorer.
 """
 from dataclasses import dataclass
 import math

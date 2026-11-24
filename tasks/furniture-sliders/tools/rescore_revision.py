@@ -1,7 +1,8 @@
 """Rescore saved raw measurements with the current scorer, without simulation.
 
-Reject changed physical specifications and scene/reset helpers. Never overwrite
-the original result, recordings, measurements or evaluated source snapshot.
+Reject changed physical specifications and scene/reset helpers. A recording-only
+camera change requires an explicit flag and is reported with both source hashes.
+Never overwrite the original result, measurements or evaluated source snapshot.
 """
 import argparse
 import hashlib
@@ -18,16 +19,23 @@ def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def rescore(run):
+def rescore(run, allow_recording_camera_change=False):
     saved = json.loads((run / 'spec-used.json').read_text())
     current = json.loads((TASK / 'spec.json').read_text())
     if {k:v for k,v in saved.items() if k!='score'} != {k:v for k,v in current.items() if k!='score'}:
         raise ValueError('Physical specification changed; cannot reuse this recording')
     unchanged = ('assets.py', 'adapter.py', 'config.py', 'partkit.py', 'floor_geometry.py',
-                 'observer.py', 'task.py', 'native_audit.py', 'scheduled_runtime.py', 'controller.py')
+                 'task.py', 'native_audit.py', 'scheduled_runtime.py', 'controller.py',
+                 'control_utils.py', 'motion_plan.py')
     for name in unchanged:
         if sha(TASK / name) != sha(run / 'task-bundle' / name):
             raise ValueError('Recorded physical runtime/controller differs: ' + name)
+    camera_sources = {'recorded':sha(run/'task-bundle'/'observer.py'),
+                      'current':sha(TASK/'observer.py')}
+    camera_changed = camera_sources['recorded'] != camera_sources['current']
+    if camera_changed and not allow_recording_camera_change:
+        raise ValueError('Recording cameras changed; review the diff and explicitly use '
+                         '--allow-recording-camera-change to rescore preserved evidence')
     os.environ['FURNITURE_SLIDERS_SPEC'] = str(TASK / 'spec.json')
     sys.path.insert(0, str(TASK))
     import numpy as np
@@ -67,6 +75,9 @@ def rescore(run):
         'same_final_score':scorer.score==result['scoring']['score'],
         'scoring':detail, 'physical_specification_unchanged':True,
         'unchanged_physical_runtime_files':list(unchanged),
+        'recording_camera_source_changed':camera_changed,
+        'recording_camera_sha256':camera_sources,
+        'camera_change_acknowledged':bool(camera_changed and allow_recording_camera_change),
         'stationary_matches_unchanged_at_every_frame':bool(stationary_matches_unchanged),
         'bare_start':not first['scoring']['matches'] and len(first['measurement']['pads'])==4,
         'qualified_transport_frames':sum(h['retained'] for h in history),
@@ -87,8 +98,10 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('run', type=Path)
     parser.add_argument('--out', type=Path)
+    parser.add_argument('--allow-recording-camera-change', action='store_true',
+                        help='Acknowledge a reviewed evidence-camera-only diff; physical helpers remain exact.')
     args = parser.parse_args()
-    answer = rescore(args.run.resolve())
+    answer = rescore(args.run.resolve(), args.allow_recording_camera_change)
     encoded = json.dumps(answer, indent=2)+'\n'
     if args.out:
         with args.out.open('x') as f:

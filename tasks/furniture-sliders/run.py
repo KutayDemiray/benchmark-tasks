@@ -23,7 +23,7 @@ linecache.cache[__file__]=(len(_entry_source),None,_entry_source.splitlines(True
 
 
 def compatible_gate(gate_path,spec):
-    """Budget-only revisions do not invalidate otherwise identical G1 physics."""
+    """Budget and public-transport revisions leave the strict G1 test unchanged."""
     if not gate_path:return False
     gate_path=Path(gate_path)
     gate=json.loads(gate_path.read_text())
@@ -31,6 +31,11 @@ def compatible_gate(gate_path,spec):
     def normalize(value):
         value=json.loads(json.dumps(value))
         for key in ('max_steps','one_pad_max_steps'):value['control'].pop(key,None)
+        # These fields govern only the four-pad public transport witness. Keep
+        # every G1 geometry, contact, load, release and drift threshold exact.
+        for key in ('transport_foot_center_offset_m','transport_height_tolerance_m',
+                    'transport_upright_tolerance_deg'):
+            value['score'].pop(key,None)
         return value
     # The saved source spec is byte-identical to the spec hashed at run startup.
     source_path=gate_path.parent/'spec-source.json'
@@ -129,6 +134,10 @@ def main():
             'scheduler_job_dir':os.environ['ROBOCURVE_JOB_DIR'],'completed':False,'one_pad_gate_pass':False,
             'diagnostic_preinstalled_pads':preinstalled,'full_task_demonstration':False}
     result['recording_only_observer_camera']=bool(args.video)
+    if args.video:
+        from observer import camera_metadata
+        result['evidence_cameras']=camera_metadata()
+        result['evidence_cameras'].update(width=args.width,height=args.height)
     if policy_mode:
         result.update(evaluation_source_sha256=source_hashes(ROOT),demo_evidence=demo_proof,
                       requested_hosted_evaluation=args.mode=='dream',scripted_assistance=False,

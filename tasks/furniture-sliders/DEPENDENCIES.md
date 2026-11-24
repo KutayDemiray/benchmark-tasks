@@ -43,6 +43,11 @@ but no GPU reservation. The full test suite exercises the stock kinematics throu
 `yam_arena.analysis` and retains the small `regression-*.json` fixtures that those
 tests load.
 
+`tools/prepare_demo.py` uses the existing `imageio-ffmpeg` binary with libx264
+and libass for CPU-only media export, plus the installed DejaVu Sans font for
+anonymous camera labels. The recorded evidence views are not resized. No encoder
+or font installation was performed for this revision.
+
 A newly authorized live model episode requires configured Dream credentials
 through the installed client's environment or standard credential file. Keep
 credentials out of the task directory. The completed model recording and score

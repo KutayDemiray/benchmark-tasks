@@ -49,5 +49,27 @@ class RuntimeTests(TestCase):
             gate['one_pad_gate_pass']=False;result.write_text(json.dumps(gate))
             self.assertFalse(compatible_gate(result,S))
 
+    def test_transport_revision_does_not_waive_one_pad_physics_or_thresholds(self):
+        with tempfile.TemporaryDirectory() as directory:
+            p=Path(directory)
+            prior=copy.deepcopy(S)
+            for key in ('transport_foot_center_offset_m','transport_height_tolerance_m',
+                        'transport_upright_tolerance_deg'):
+                prior['score'].pop(key)
+            raw=json.dumps(prior).encode()
+            (p/'spec-source.json').write_bytes(raw)
+            (p/'spec-used.json').write_bytes(raw)
+            result=p/'result.json'
+            result.write_text(json.dumps({'one_pad_gate_pass':True,'device':{'verified':True},
+                                          'spec_sha256':hashlib.sha256(raw).hexdigest()}))
+            self.assertTrue(compatible_gate(result,S))
+            for section,key in (('simulation','physics_hz'),('score','one_pad_min_load_N'),
+                                ('score','one_pad_max_drift_m'),('score','contact_gap_m')):
+                changed=copy.deepcopy(S)
+                changed[section][key]*=2
+                with self.subTest(key=key):self.assertFalse(compatible_gate(result,changed))
+            (p/'spec-source.json').write_bytes(raw+b' ')
+            self.assertFalse(compatible_gate(result,S))
+
 
 if __name__=='__main__': main()

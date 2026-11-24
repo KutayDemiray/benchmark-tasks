@@ -495,12 +495,88 @@
       "Preflight permits exactly those two path-only runner substitutions after checking the frozen source hash; CLI evidence path default is home-relative."
     ],
     "runtime_math_physics_scoring_controllers_unchanged": true,
-    "checked_by": "same_runner_except_paths and complete EPISODE_FILES hashes"
+    "checked_by": "same_runner_except_paths and complete EPISODE_FILES hashes",
+    "scope": "Initial submission packaging; the subsequent scorer revision is recorded separately in scoring_revision."
   },
   "cpu_tests": {
-    "passed": 23,
-    "log_sha256": "ef897e811dc646cfbec8e48fa24bf7f4dc1e17991e606d85251959299f7d1d25"
+    "passed": 30,
+    "log_sha256": "e62856b273cad2d1ef198e44bf5fdae763500d4a7890fa4d7d0a2e70adb00c08",
+    "modules": [
+      "test_mechanism",
+      "test_motion",
+      "test_jaw_contact",
+      "test_load_score",
+      "test_retrieval",
+      "test_evaluation",
+      "test_preflight",
+      "test_primary_score",
+      "test_scoring_revision"
+    ]
   },
   "review_scope": "Original full recordings reviewed at one-second intervals plus keyframes and contact/pose evidence; submission rechecks setup, critical demo frames, model final views, independent scores, frame counts and media hashes. No claim of manually viewing every frame.",
-  "fidelity": "Approximate unmeasured mechanics. No hardware calibration or broad robustness claim."
+  "fidelity": "Approximate unmeasured mechanics. No hardware calibration or broad robustness claim.",
+  "scoring_revision": {
+    "id": "retrieval-without-empty-cycle-v2",
+    "reason": "Review requested that instructed jaw-mediated retrieval earn full credit without a preceding empty-jaw cycle.",
+    "changes": [
+      "Retrieval does not require the optional empty-jaw cycle or tip-down dwell.",
+      "Original fingers may load the two handles without a prescribed arm assignment.",
+      "Extraction, continuous carry, qualified release and final clearance/stability checks are unchanged."
+    ],
+    "original_scorer_sha256": "6b79345ee24e4ee7bbe056350dcbecfea0de2125638de84eea5c4ca6156f13f9",
+    "revised_episode_contract": {
+      "revision": "coupling-nut-rectangular-recess-v1",
+      "instruction": "Unfold the folded butterfly multitool pliers. Use the working jaws to grip the loose coupling nut in the rectangular recess, lift it out, carry it to the blue tray, and release it inside. Move the tool and both robot grippers clear and leave the nut resting in the tray. Complete the task within 180 seconds.",
+      "cameras": [
+        "top_cam",
+        "left_cam",
+        "right_cam"
+      ],
+      "top_camera_variant": "demo",
+      "rgb_shape": [
+        176,
+        320,
+        3
+      ],
+      "control_hz": 20,
+      "max_actions": 3600,
+      "seed": 0,
+      "physics_hz": 240,
+      "source_hashes": {
+        "episode_config.py": "c47dd04620bd9b8726dd561dd9811d51288a09320eedc8981499920e69992d7f",
+        "mechanism.json": "46e0ddcc2ebe493192c47694b4ebae82a14f1b35157b51d1d02b2b6f5460ed26",
+        "mechanism.py": "ef92b4cbf61d231b37c6ebe320507bc5b500ba5ebbb9b71d5b209b88ae0db609",
+        "geometry.py": "d7e5a1f9921dd9b649aeb2fc6728f7eee9cdc777ca327dec8c2fb3f197a75056",
+        "tool_asset.py": "a4275d3a6a7387e056a9954e7060cd4805479bc3b2bb21e19499981277fdafc6",
+        "passive_actuator.py": "a9a15b8a4193b2e8f59f3afc62641b78b06c761a0f17ce63c462563ff91e3368",
+        "compound_asset.py": "e076a0857003626a7008a11e4896c778bbf2fb2d8ae7b6003bac6af5973c6a9b",
+        "adapter.py": "73f01079cbf0c8dcd4f20ee8767157430eb7af66aa37d2768e3e57d5df08a3be",
+        "retrieval_scene.py": "4f31447bcc3517a75fe1848a298d32921341173e42eaec203472f8ecf14782b6",
+        "task.py": "7cc6573929e83491b8e6ee409fa3bad22e8fc58a46a412afdb3f33f43a16aa69",
+        "scorer.py": "76f952966b8a2bd66475177bf97b02601165dda4237ee53a2497b3431a240b17",
+        "retrieval_score.py": "581968a2786a7952a5ffa386297fd252cf6a8d5419a36541b07fd72758d9755a",
+        "jaw_contact.py": "cff7873fc16986e2ef53cfddf2dbe39e1cf9be16afd48d00b48d79a305e11d68",
+        "load_score.py": "1e9e18fa83d1292fe59f5aa09b9d34278e0dbbb35bf5e78265b6b5a5ea63dba2",
+        "clearance.py": "6fcaf1112a479a464dfe79a168f5cd1f309727f87176e3bc61a1c9efab37b3d9",
+        "stock_geometry.py": "9ef778bc3c8a414d3a21fea9369c32f706e6b0faa00e83fc80968b90e0182104"
+      }
+    },
+    "original_cpu_tests": {
+      "passed": 23,
+      "log_sha256": "ef897e811dc646cfbec8e48fa24bf7f4dc1e17991e606d85251959299f7d1d25"
+    },
+    "reports": {
+      "demo": {
+        "file": "rescored-demo.json",
+        "sha256": "001c6cbfd2dfbf7a41d17e6cff4e46b7bec745b5eebd0354075c84341b33938a"
+      },
+      "model": {
+        "file": "rescored-model.json",
+        "sha256": "d80b01fd8951219fcb6052c2caef2a757b4b63cebb51fb5a3d8d48bc6099adca"
+      }
+    },
+    "new_simulation_or_model_call": false,
+    "media_unchanged": true,
+    "hardware_verified": false
+  }
 }

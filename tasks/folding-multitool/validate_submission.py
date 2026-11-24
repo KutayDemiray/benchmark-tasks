@@ -5,7 +5,8 @@ import hashlib
 import json
 from pathlib import Path
 import re
-from episode_config import contract, INSTRUCTION
+from episode_config import INSTRUCTION
+from scoring_revision import verify_revision
 
 ROOT = Path(__file__).resolve().parent
 REQUIRED = ("title", "category", "instruction", "setup", "scoring", "run_limit",
@@ -36,7 +37,7 @@ def validate(allow_unuploaded=False, media_dir=None):
         assert re.fullmatch(r"M-[A-Za-z0-9]+", spec["media"]), "Unexpected media ID format"
     for value in (v for v in spec.values() if isinstance(v, str)):
         assert "/home/" not in value and not re.search(r"[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}", value), "Identifying path/email in task text"
-    assert contract(ROOT) == evidence["episode_contract"], "Validated task definition changed"
+    verify_revision(ROOT)
     for role, score, count in (("demo", 1., 3018), ("model", 0., 3600)):
         run = evidence["runs"][role]
         assert run["score"] == score and run["actions"] == count and run["seed"] == 0
@@ -46,10 +47,11 @@ def validate(allow_unuploaded=False, media_dir=None):
     assert evidence["runs"]["model"]["inference"]["episode_count"] == 1
     assert evidence["runs"]["model"]["inference"]["scripted_action_rows"] == 0
     assert evidence["runs"]["interface"]["interface_passed"]
-    # Every original implementation file except the disclosed path/preflight
-    # changes must be identical to the evaluated snapshot.
+    # Only the reviewed scorer change and disclosed path/preflight changes
+    # may differ from the evaluated snapshot. Revision reports bind old and
+    # new scorer hashes to the same immutable traces.
     for name, expected in evidence["runs"]["model"]["source_hashes"].items():
-        if name not in {"run.py", "preflight.py"}:
+        if name not in {"run.py", "preflight.py", "scorer.py"}:
             assert digest(ROOT/name) == expected, f"Evaluated source changed: {name}"
     assert digest(ROOT/"run.py") == evidence["submission_portability"]["submitted_runner_sha256"]
     for path in ROOT.glob("*.py"):
@@ -70,6 +72,7 @@ def validate(allow_unuploaded=False, media_dir=None):
             "field_lengths": lengths, "media_id": spec["media"],
             "media_hashes_checked": bool(media_dir), "cpu_tests_passed": evidence["cpu_tests"]["passed"],
             "task_contract_verified": True, "evaluated_runtime_hashes_verified": True,
+            "scoring_revision_verified": evidence["scoring_revision"]["id"],
             "source_hashes": source_hashes,
             "pending": [] if spec["media"] else ["Repository uploader must populate task-specific media ID"]}
 

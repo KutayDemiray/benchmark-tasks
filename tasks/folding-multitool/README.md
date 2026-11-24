@@ -1,16 +1,19 @@
 # Deploy butterfly multitool pliers and retrieve a recessed coupling nut
 
-The robot must unfold a passive butterfly multitool, regrasp the deployed
-handles, open and close the working jaws, grip a coupling nut inside a narrow
+The robot must unfold a passive butterfly multitool and use its handles to
+grip a coupling nut between the working jaws inside a narrow
 recess, extract and carry it, then release it into a tray and clear the nut.
 Functional deployment must transmit force through the tool's linkage.
 
-The submitted revision is `coupling-nut-rectangular-recess-v1`. The scripted
+The scene revision is `coupling-nut-rectangular-recess-v1`; the scoring revision
+is `retrieval-without-empty-cycle-v2`. The scripted
 demonstration scored **1.0 in 3,018 actions (150.9 simulated seconds)**. The one
 genuine hosted **Dream-1 attempt scored 0.0 after 3,600 actions (180 simulated
 seconds)**. Both used seed 0 and the same scene, reset, instruction, physics,
-scorer, cameras and recording path. Independent frozen-source rescoring matched
-every recorded score. The videos include the reset and every executed action.
+original scorer, cameras and recording path. Independent frozen-source rescoring
+matched every recorded score. Separate CPU assessments with the revised scorer
+also match every recorded score and preserve both outcomes. No new episode or
+model call was needed. The videos include the reset and every executed action.
 See [EVIDENCE.md](EVIDENCE.md) and [evidence.json](evidence.json) for provenance.
 
 ## Scene and passive mechanism
@@ -57,12 +60,16 @@ its dimensions were not chosen to enlarge the actual tool or robot fingers.
 contacts independently of controller stage labels. No score comes from requested
 poses or desired trajectories.
 
-- **0.25:** a folded reset; both folds within 5 degrees of deployed; opposing
+- **0.25 (optional):** a folded reset; both folds within 5 degrees of deployed; opposing
   original fingers pinch separate handles; jaws open >=14 mm for 10 control
   frames, then close <=1 mm for 10 frames (0.5 s each). Tool head and non-finger
-  robot contacts cannot support functional use. This credit records the cycle.
-- **0.5:** after the cycle and 1 s of stable tip-down orientation (tip axis
-  z < -0.94), begin an opposing inner-jaw pinch inside the recess. Keep the nut
+  robot contacts cannot support functional use. This credit records the cycle;
+  it is not a prerequisite for retrieval credit.
+- **0.5:** from the folded reset, deploy both folds within 5 degrees and begin
+  an opposing inner-jaw pinch inside the recess. Original fingers must load both
+  handles, without supporting the head or using other robot links. Either or
+  both grippers may supply these handle contacts; no arm assignment is prescribed.
+  No preceding empty-jaw cycle or tip-down dwell is required. Keep the nut
   bottom >=10 mm above the rim for 1 s, then carry >=30 mm horizontally from
   that extraction position without other support. Carry credit is historical.
 - **1.0:** release from that same carry wholly over the tray with 3 mm edge
@@ -83,11 +90,12 @@ non-jaw exclusion. A nut merely placed in the tray cannot satisfy the history.
 For a real-world check use a ruler/caliper, marked tray margins and synchronized
 side/overhead video to observe fold angles, jaw gap, extraction height, carry,
 release, drift and clearance. Verify that the opposing jaws alone retain the
-nut and that both hands load handles without supporting the head or nut. Small
+nut and that the robot loads both handles without supporting the head or nut. Small
 force thresholds are numerical contact-noise tolerances for the simulation;
 real-world evidence needs visible separation and retention under gravity.
-Before hardware trials, test actual-size grasps and measure hinge torque-angle,
-stop faces, collapse resistance, component inertia and friction. Keep hands clear
+Before hardware trials, verify actual jaw fit and grasps in this 24 mm recess,
+and measure hinge torque-angle, stop faces, collapse resistance, component
+inertia and friction. Keep hands clear
 of hinge pinch points. This simulation is not a hardware calibration.
 
 ## Environment and reproduction
@@ -131,7 +139,8 @@ Pure CPU checks (no simulator or provider call):
 source "$HOME/IsaacLab-Arena/yam.env"
 cd tasks/folding-multitool
 python -B -m unittest -v test_mechanism test_motion test_jaw_contact \
-  test_load_score test_retrieval test_evaluation test_preflight
+  test_load_score test_retrieval test_evaluation test_preflight \
+  test_primary_score test_scoring_revision
 ```
 
 The offline native interface test uses the same complete retrieval scene:
@@ -176,7 +185,9 @@ FOLDING_INTERFACE="$FOLDING_RUNS/74bbb0f4c2464a779b1917397b65fd1b"
 ```
 
 Preflight requires a reviewed full-score demo, passed native interface check,
-matching episode sources and locally configured Dream credentials. The runner
+matching episode sources and locally configured Dream credentials. An explicitly
+hashed scoring-only revision may reuse the original evidence after both original
+traces are rescored; `scoring_revision.py` rejects any other episode change. The runner
 and evaluation boundary must match the tested versions. The only permitted
 legacy runner difference is the two explicitly checked scheduler/output path
 substitutions documented in `EVIDENCE.md`; any runtime edit still blocks it.
@@ -197,6 +208,22 @@ seeds, native-source hashes and device audits are preserved outside Git. This
 submission includes compact provenance and independent assessment summaries;
 rescore commands require the original run directories, not the uploaded videos.
 The videos are anonymous H.264/yuv420p, under 50 MB; setup.png is under 10 MB.
+
+The commands above use each run's original frozen scorer. To reproduce the
+review revision, write separate reports outside the original run directories:
+
+```bash
+python -B "$FOLDING_TASK_DIR/rescore_revision.py" "$FOLDING_DEMO" \
+  --role demo --out /tmp/folding-multitool-rescored-demo.json
+python -B "$FOLDING_TASK_DIR/rescore_revision.py" "$FOLDING_MODEL" \
+  --role model --out /tmp/folding-multitool-rescored-model.json
+```
+
+`rescored-demo.json` and `rescored-model.json` in this package contain the resulting
+assessment and old/new source hashes. The original records and uploaded media
+`M-JTNCGU` are unchanged. Regression tests show that the primary scorer awards
+1.0 with all empty-cycle flags false. Alternative finger assignments in those
+tests check scoring semantics; they are not additional physical demonstrations.
 
 ## Controller and source map
 
@@ -219,7 +246,7 @@ state and are absent from the model episode.
 | `controller.py`, `motion.py`, `load_controller.py`, `retrieval_controller.py` | Contact-driven scripted feasibility sequence |
 | `scorer.py`, `retrieval_score.py`, `jaw_contact.py`, `clearance.py` | Independent observed scoring |
 | `run.py`, `episode_config.py`, `evaluation.py`, `preflight.py`, `audit.py` | Shared episode, restricted model I/O, scheduler and native audits |
-| `rescore.py`, `review_run.py`, `prepare_media.py` | CPU evidence review and media export |
+| `rescore.py`, `rescore_revision.py`, `scoring_revision.py`, `review_run.py`, `prepare_media.py` | Original/revised CPU assessments, provenance and media export |
 | `load_gauge.py`, `load_score.py`, `reset_diagnostic.py`, geometry/grasp checks | Separate diagnostic investigations; retained dependencies |
 
 ### Historical diagnostics and limitations

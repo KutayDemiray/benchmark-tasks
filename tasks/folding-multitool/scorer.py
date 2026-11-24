@@ -1,4 +1,4 @@
-"""Independent observed deployment gate. Never reads the controller's stage."""
+"""Observed tool use; the empty-jaw cycle is an optional partial-credit gate."""
 import numpy as np
 from load_score import LoadGate
 from retrieval_score import RetrievalGate
@@ -28,10 +28,14 @@ class DeploymentScorer:
             self.folded_seen = (abs(q["fold_a"]-np.pi) < .1 and abs(q["fold_b"]+np.pi) < .1)
         self.peak_gap = max(self.peak_gap, m["gap_m"])
         deployed = max(abs(q["fold_a"]), abs(q["fold_b"])) < np.deg2rad(5)
-        # Each arm must pinch its own handle between both original fingers.
+        # The optional deployment diagnostic retains its original bimanual
+        # grasp check. Retrieval may use any original-finger assignment that
+        # loads both handles, including one gripper squeezing both handles.
         p = np.asarray(m["pads_n"])
         opposite_handles = (min(p[0, 2], p[1, 2], p[2, 3], p[3, 3]) > .1 or
                             min(p[0, 3], p[1, 3], p[2, 2], p[3, 2]) > .1)
+        handles_loaded = any(p[a, 2] > .1 and p[b, 3] > .1
+                             for a in range(4) for b in range(4) if a != b)
         head_clear = p[:, :2].max() < .1
         # During functional use only the original fingers may load the tool.
         # A forearm supporting the head must not count as handle-mediated use.
@@ -45,7 +49,8 @@ class DeploymentScorer:
             for name, force in zip(names, forces):
                 if name not in ("tip_left", "tip_right") and np.linalg.norm(force) >= .1:
                     links_clear = False
-        valid = self.folded_seen and deployed and opposite_handles and head_clear and links_clear
+        tool_use = self.folded_seen and deployed and head_clear and links_clear
+        valid = tool_use and opposite_handles
         self.open_count = self.open_count+1 if valid and m["gap_m"] >= .014 else 0
         if self.open_count >= 10:
             self.open_seen = True
@@ -57,7 +62,9 @@ class DeploymentScorer:
             self.tip_down_seen = True
         self.score = .25 if self.cycle_seen and not self.invalid_reason else 0.
         self.load.update(m, valid and self.cycle_seen and self.tip_down_seen and not self.invalid_reason)
-        self.retrieval.update(m, valid and self.cycle_seen and self.tip_down_seen and not self.invalid_reason)
+        # Actual jaw-mediated extraction is the primary evidence of useful
+        # deployment. No preceding empty-jaw motion or tip-down dwell is needed.
+        self.retrieval.update(m, tool_use and handles_loaded and not self.invalid_reason)
         if not self.invalid_reason:
             if self.retrieval.carried:
                 self.score = .5

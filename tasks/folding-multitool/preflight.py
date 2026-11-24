@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 import re
 from episode_config import contract
+from scoring_revision import compatible_contract, verify_revision, digest
 
 
 def same_runner_except_paths(tested, current):
@@ -48,7 +49,7 @@ def ready(root, demo_run=None, interface_run=None, runs=None):
             try:
                 meta = json.loads(path.read_text())
                 result = json.loads((path.parent/"result.json").read_text())
-                if meta.get("mode") != "retrieval" or meta.get("contract") != report["contract"]:
+                if meta.get("mode") != "retrieval" or not compatible_contract(root, meta.get("contract")):
                     continue
                 if demo_run is None and meta.get("controller") == "scripted" and result["scoring"]["score"] == 1.:
                     demo_run = path.parent
@@ -56,7 +57,7 @@ def ready(root, demo_run=None, interface_run=None, runs=None):
                     check = json.loads((path.parent/"interface-check.json").read_text())
                     if check["passed"]:
                         interface_run = path.parent
-            except (OSError, ValueError, KeyError):
+            except (OSError, ValueError, KeyError, AssertionError):
                 continue
     if not report["credentials"]["api_key_present"]:
         report["blockers"].append("DREAM_API_KEY is absent from the environment and the resolved credentials file")
@@ -69,7 +70,15 @@ def ready(root, demo_run=None, interface_run=None, runs=None):
             metadata = json.loads((path/"metadata.json").read_text())
             result = json.loads((path/"result.json").read_text())
             assert metadata["mode"] == "retrieval", "diagnostic scene"
-            assert metadata["contract"] == report["contract"], "episode source/configuration changed"
+            assert compatible_contract(root, metadata["contract"]), "episode source/configuration changed"
+            if metadata["contract"] != report["contract"]:
+                # Legacy native checks remain usable only for this explicitly
+                # rescored, hash-verified scorer change. No physics/I/O waiver.
+                evidence = verify_revision(root)
+                assert digest(path/"metadata.json") == evidence["runs"][label]["metadata_sha256"], "unrecognized legacy evidence"
+                for name, expected in metadata["contract"]["source_hashes"].items():
+                    assert digest(path/"source"/name) == expected, f"{name} frozen source changed"
+                report["scoring_only_revision_verified"] = evidence["scoring_revision"]["id"]
             assert json.loads((path/"device-verification.json").read_text())["verified"], "GPU not verified"
             assert result["device_verified"], "GPU not verified"
             if label == "demo":

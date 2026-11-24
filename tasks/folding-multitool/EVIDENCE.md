@@ -57,7 +57,8 @@ RGB views. The screenshot is the valid folded reset. No names, usernames, paths,
 logos, score overlays or identifying audio are present. There is no temporal
 cutting; reset plus every action accounts for the exact frame count. Exports
 were reused by hash without another encode or upload during initial preparation.
-The repository uploader writes the task-specific media ID into `task.json`.
+The repository uploader assigned **M-JTNCGU** to this task; the review revision
+retains that upload and the same three media hashes.
 
 ## Submission-only changes
 
@@ -77,12 +78,46 @@ any other runner difference or evaluation-boundary change requires new native
 interface evidence. CPU tests reject altered device, timing and controller code.
 The preflight CLI default evidence directory is also home-relative.
 
-All 16 shared episode files and the controllers, scorer, geometry and native
-adapter remain byte-identical to the completed runs. The 23-test CPU suite and
-independent rescores passed during packaging. No new simulator or paid model run
-was launched. `validate_submission.py` prints field lengths, verifies the frozen
-contract/runtime hashes and optional media hashes, then can refresh
-`package-validation.json` after the uploader fills in the media ID.
+At initial submission all 16 shared episode files and the controllers, scorer,
+geometry and native adapter were byte-identical to the completed runs. The
+23-test CPU suite and independent rescores passed during that packaging step.
+The scoring revision below changes only `scorer.py` among those episode files.
+`validate_submission.py` prints field lengths, verifies the explicitly revised
+contract, unchanged runtime sources and optional media hashes, then can refresh
+`package-validation.json`.
+
+## Review revision: retrieval without an empty-jaw prerequisite
+
+The original scorer required a prior empty-jaw cycle and tip-down dwell before
+recognizing retrieval. Revision `retrieval-without-empty-cycle-v2` removes those
+prerequisites from extraction/carry/full credit. The cycle remains optional 0.25
+credit and the separate load diagnostic is unchanged. Functional handle loading
+does not prescribe which arm holds which handle; original fingers must load both
+handles while the opposing inner jaws alone retain the nut. Folded reset,
+deployed fold stops, extraction/carry history, release, clearance and stability
+checks remain. Physics, reset, robot, controllers, instruction, cameras, action
+budget and recordings are unchanged.
+
+`rescored-demo.json` and `rescored-model.json` are separate revised assessments of
+the immutable original measured traces. Every frozen file and the complete trace
+were verified against the recorded hashes before assessment. Results remain
+**demo 1.0 at 3,018 actions; Dream-1 0.0 at 3,600 actions**, with no per-step score
+or snapshot differences. `evidence.json` retains the original episode contract
+and run records alongside the revised contract and report hashes. No new
+simulation, model attempt or media upload was performed for this revision.
+
+The 30-test CPU suite includes full outer-scorer retrieval without an empty cycle,
+alternative handle/finger assignments, rejected head/nut support and direct
+placement, drop-then-push, insufficient final clearance/stability, and rejection
+of non-scoring source changes or altered evidence. Synthetic measurements test
+score logic; they do not prove an additional feasible grasp. Preflight permits
+the old native interface evidence only through the verified scoring-only
+compatibility path. The original runner and model I/O checks still apply.
+
+The review's hardware note remains unresolved by simulation: verify actual jaw
+fit, hinge behavior and robot grasps in the specified recess before hardware
+trials. Neither the original evaluation nor this scoring revision establishes
+those specimen measurements.
 
 The earlier short-nut reset failures and separate load diagnostic remain original
 historical investigations outside Git. Load-scene modules are retained because

@@ -7,7 +7,8 @@
     "actions": 5838,
     "budget": 6000,
     "bare_start": true,
-    "supported_transport_m": 0.20396623,
+    "supported_transport_m": 0.2043901792254573,
+    "original_contact_rule_transport_m": 0.20396623,
     "evaluated_bundle_sha256": "23004311376acddfa7a40d898b37686fbfd6f170284362bcf385d9652e6ec68c"
   },
   "model_evaluation": {
@@ -26,7 +27,8 @@
     "stable_server_session_performance_established": false,
     "evaluated_bundle_sha256": "034c636cfcd25e93eacd8528d181e394b0ac152e1ef9e79770d61611f358c7ce"
   },
-  "spec_sha256": "5abdaf0dbb4faf4ec593b7eca22e4ef98b7e3d359af77bb4c2e46048e20a1159",
+  "spec_sha256": "1618772702c14522dba987143bf93d33f069e791330e9da368b772147b0beb3a",
+  "recorded_spec_sha256": "5abdaf0dbb4faf4ec593b7eca22e4ef98b7e3d359af77bb4c2e46048e20a1159",
   "evaluated_python_and_spec_sha256": {
     "adapter.py": "0d66cc26cce37a55427a4bd7a7213d840a02c3a48b9a82ad29e428ea6afcfae1",
     "assets.py": "00f148f52e7ba39ec2caf2fccd5589507a4ff191c5e6288c55a0a508ab906943",
@@ -100,7 +102,199 @@
     "model_score": 0.0,
     "model_action_difference": 0.0,
     "native_state_error": 3.9672953144886947e-08,
-    "tests_passed": 34
+    "scoring_version": 2,
+    "tests_passed": 45
+  },
+  "scoring_revision": {
+    "review_id": "TK-6RE8Q6",
+    "version": 2,
+    "review_url": "https://github.com/robocurve/benchmark-tasks/pull/3880#issuecomment-7110044559",
+    "changed_evaluated_files": [
+      "scoring.py",
+      "spec.json",
+      "test_scoring.py"
+    ],
+    "physical_specification_unchanged": true,
+    "demo_rescore": {
+      "run": "full-002",
+      "observations": 5839,
+      "actions": 5838,
+      "recorded_score": 1.0,
+      "rescored_score": 1.0,
+      "same_final_score": true,
+      "scoring": {
+        "matches": [
+          [
+            0,
+            "slider_0"
+          ],
+          [
+            1,
+            "slider_1"
+          ],
+          [
+            2,
+            "slider_3"
+          ],
+          [
+            3,
+            "slider_2"
+          ]
+        ],
+        "on_panel": true,
+        "in_goal": true,
+        "tilt_deg": 0.00012359092359456655,
+        "hands_clear": true,
+        "transport_matches": [
+          [
+            0,
+            "slider_0"
+          ],
+          [
+            1,
+            "slider_1"
+          ],
+          [
+            2,
+            "slider_3"
+          ],
+          [
+            3,
+            "slider_2"
+          ]
+        ],
+        "transport_retained": true,
+        "scoring_version": 2,
+        "transport_rule": {
+          "foot_center_offset_m": 0.02,
+          "height_tolerance_m": 0.01,
+          "upright_tolerance_deg": 15.0
+        },
+        "stable_released": true,
+        "score": 1.0,
+        "success": true,
+        "transport_m": 0.2043901792254573,
+        "transport_start_step": 4865,
+        "one_pad_gate": true,
+        "one_pad_travel_m": 0.20145105598850338,
+        "one_pad_drift_m": 0.002668756344080171
+      },
+      "physical_specification_unchanged": true,
+      "unchanged_physical_runtime_files": [
+        "assets.py",
+        "adapter.py",
+        "config.py",
+        "partkit.py",
+        "floor_geometry.py",
+        "observer.py",
+        "task.py",
+        "native_audit.py",
+        "scheduled_runtime.py",
+        "controller.py"
+      ],
+      "stationary_matches_unchanged_at_every_frame": true,
+      "bare_start": true,
+      "qualified_transport_frames": 974,
+      "final_transport_segment": {
+        "start_step": 4865,
+        "last_step": 5838,
+        "first_150mm_step": 5637,
+        "max_foot_pad_center_offset_m": 0.01953879884894655,
+        "max_foot_height_error_m": 0.005577580026155937,
+        "max_pad_height_error_m": 1.1253356934082248e-06
+      },
+      "source_sha256": {
+        "scoring.py": "150624ca7cdc503c6d0f5cc215690127e93f9d5252d119612af8e79f41b94255",
+        "spec.json": "1618772702c14522dba987143bf93d33f069e791330e9da368b772147b0beb3a",
+        "tools/rescore_revision.py": "10b76e68dc9c9cf7648153f9aa6d28c8c38d77c8704d85e4f9cde7f402de2218"
+      },
+      "original_evidence_sha256": {
+        "measurements.jsonl": "9973fdab185ba22272c223f2125be7ca8a68c5dd3592437d236163482eb2ec88",
+        "result.json": "e32b577f89e8dcf6d2583785f192e891bc650ac098aa95fc3405831b8243ac56",
+        "spec-used.json": "81f4167c2ae7b58b43aabdc2b9d7b9d7cf9a46297bec7ac4f99dc6701dd2fd56"
+      },
+      "new_simulator_launches": 0,
+      "new_hosted_calls": 0
+    },
+    "model_rescore": {
+      "run": "dream-001",
+      "observations": 6001,
+      "actions": 6000,
+      "recorded_score": 0.0,
+      "rescored_score": 0.0,
+      "same_final_score": true,
+      "scoring": {
+        "matches": [],
+        "on_panel": true,
+        "in_goal": false,
+        "tilt_deg": 3.726406555059884e-05,
+        "hands_clear": false,
+        "transport_matches": [],
+        "transport_retained": false,
+        "scoring_version": 2,
+        "transport_rule": {
+          "foot_center_offset_m": 0.02,
+          "height_tolerance_m": 0.01,
+          "upright_tolerance_deg": 15.0
+        },
+        "stable_released": false,
+        "score": 0.0,
+        "success": false,
+        "transport_m": 0.0,
+        "transport_start_step": null,
+        "one_pad_gate": false,
+        "one_pad_travel_m": 0.0,
+        "one_pad_drift_m": 0.0
+      },
+      "physical_specification_unchanged": true,
+      "unchanged_physical_runtime_files": [
+        "assets.py",
+        "adapter.py",
+        "config.py",
+        "partkit.py",
+        "floor_geometry.py",
+        "observer.py",
+        "task.py",
+        "native_audit.py",
+        "scheduled_runtime.py",
+        "controller.py"
+      ],
+      "stationary_matches_unchanged_at_every_frame": true,
+      "bare_start": true,
+      "qualified_transport_frames": 0,
+      "final_transport_segment": null,
+      "source_sha256": {
+        "scoring.py": "150624ca7cdc503c6d0f5cc215690127e93f9d5252d119612af8e79f41b94255",
+        "spec.json": "1618772702c14522dba987143bf93d33f069e791330e9da368b772147b0beb3a",
+        "tools/rescore_revision.py": "10b76e68dc9c9cf7648153f9aa6d28c8c38d77c8704d85e4f9cde7f402de2218"
+      },
+      "original_evidence_sha256": {
+        "measurements.jsonl": "582b9121c746391cdcc9bad088a4e7d9497e3250cc0571b7340fe8236daee675",
+        "result.json": "e2fb47721950cf81ca0c81d7d9ded8e6da0c6a6672f218f10b509869f2823006",
+        "spec-used.json": "81f4167c2ae7b58b43aabdc2b9d7b9d7cf9a46297bec7ac4f99dc6701dd2fd56"
+      },
+      "new_simulator_launches": 0,
+      "new_hosted_calls": 0
+    },
+    "movement_witness": {
+      "start_step": 5468,
+      "last_step": 5838,
+      "seconds": [
+        273.4,
+        291.9
+      ],
+      "all_371_samples_visually_retained_by_geometric_rule": true,
+      "same_pad_pairs_at_every_sample": true,
+      "net_displacement_m": 0.2004025438011891,
+      "max_center_offset_m": 0.0026084147159195037,
+      "max_foot_height_error_m": 1.362109621649843e-06,
+      "max_pad_height_error_m": 1.0061264038574436e-06
+    },
+    "legacy_saved_spec_replay_matches_current_spec": true,
+    "cpu_test_log_sha256": "4b6d812d94be728b0bba75a1c50ec445ad79407b0a5219871500b50b432aa6f5",
+    "new_simulations": 0,
+    "new_hosted_attempts": 0,
+    "new_media_uploads": 0
   },
   "media": {
     "model_run.mp4": {
@@ -137,12 +331,13 @@
       "duration": 291.95
     }
   },
-  "submission_scope": "Evaluated physics/controller/scorer/robot unchanged. Packaging adds documentation, metadata, ignore rules and a copied CPU model auditor. Raw recordings, credentials and simulator caches are external to Git.",
+  "submission_scope": "Physics, controller, native robot, instruction, budget, cameras and model interface unchanged. Scoring version 2 changes only transport assessment, with tests, scoring-only specification fields, docs and a CPU rescorer. Original evaluated hashes/results and existing media preserved; current rescoring is separate. Raw recordings, credentials and simulator caches are external to Git.",
   "submission_files_sha256": {
     ".gitignore": "63c1807fd83de5d40fc796fe692474e0d293717b7a43f3da103fbb18af20dd3c",
     "DEPENDENCIES.md": "f58e06a86a025236a320a1b8e6618a89c6acea076cae608c54b2608fe9d1f789",
     "LICENSE": "08d7d18417f03c19ccfdb200a578b698291c1daa7dd774931f19469911742f0e",
-    "README.md": "0177a1a2eae8e771e042bd0c0d9c11c3ba08a17e952e03f94bc235ee7b8f56ae",
+    "README.md": "53fa8de4eaeb9e8980974c2510e3dca86e330a2403beab0b3ab1a73c7d160da7",
+    "SCORING_REVISION.md": "1c8d9f831ed09d1051e988d2002db57701d1eb5c0c54b0134c78bc1f18b8ff34",
     "adapter.py": "0d66cc26cce37a55427a4bd7a7213d840a02c3a48b9a82ad29e428ea6afcfae1",
     "assets.py": "00f148f52e7ba39ec2caf2fccd5589507a4ff191c5e6288c55a0a508ab906943",
     "audit_run.py": "f23d2bf914fae540921c1ab2c4fda99c40263cb6510759174efc733c1351ca12",
@@ -161,15 +356,16 @@
     "replay_score.py": "62464d30478185937ef2cf1e2a9e185910976a0822ede72a52ada482f625b719",
     "run.py": "741d4aedd0d77cd6e6ffba875c7d60696dc5d9b5e329bd640d50c25f0576ee21",
     "scheduled_runtime.py": "08eb6b7daa9dfc35564da85451ea78abbdd24e47140654fa004372a4485b7e9f",
-    "scoring.py": "9650b9e2200899b0a967aaac051655e92e454b5ac154a210f7b0b8bd9442f6b1",
-    "spec.json": "5abdaf0dbb4faf4ec593b7eca22e4ef98b7e3d359af77bb4c2e46048e20a1159",
-    "task.json": "e1fe05ca666e2dc7bb546fa24ed4aaa6dc2c0a01d6e458c313d0d9d6e6d93d99",
+    "scoring.py": "150624ca7cdc503c6d0f5cc215690127e93f9d5252d119612af8e79f41b94255",
+    "spec.json": "1618772702c14522dba987143bf93d33f069e791330e9da368b772147b0beb3a",
+    "task.json": "f7e3f2bb82a157150bc0989f02cb9cc3a5cd4840dc6be31fedbb5a302af309ec",
     "task.py": "7a95a2ec5f8bcc76cd459d605aeb526f809a12ef905c6797422c840478764d94",
     "test_dream.py": "23579e5bae2259d8813ddc92c1ecb6811b9df03b8b862c907231776e0ac038b7",
     "test_floor.py": "d34d0c98e07b0aaf93590998581567de4484bfcb202f2c2e0acd9c6b18fedb1a",
     "test_motion.py": "4bdc35aaa68a4dc3f613c4e95c25e2aa99bf06716010033f1dead3bd37134d7e",
     "test_runtime.py": "a61c6da3bd88afffd89d76a24611df5f277ae3f51e9e6e3061a000396511eb30",
-    "test_scoring.py": "f45bd3038964ed1cc1980e7f9292df5c908fec93a8b6a410bbff39c258c52049",
-    "tools/audit_model.py": "bb466bd615ae882499abb71d89a1d6610b3252b55f0ddf97be4f11e4a1c1e036"
+    "test_scoring.py": "c555646d8546fa37b96cae93a367e35c80eb2f8061f19aced40883938583fdca",
+    "tools/audit_model.py": "bb466bd615ae882499abb71d89a1d6610b3252b55f0ddf97be4f11e4a1c1e036",
+    "tools/rescore_revision.py": "10b76e68dc9c9cf7648153f9aa6d28c8c38d77c8704d85e4f9cde7f402de2218"
   }
 }

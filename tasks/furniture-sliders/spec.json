@@ -62,6 +62,9 @@
     "stable_translation_m": 0.002,
     "stable_rotation_deg": 1.0,
     "transport_distance_m": 0.15,
+    "transport_foot_center_offset_m": 0.020,
+    "transport_height_tolerance_m": 0.010,
+    "transport_upright_tolerance_deg": 15.0,
     "one_pad_distance_m": 0.10,
     "one_pad_max_drift_m": 0.005,
     "one_pad_min_load_N": 1.0
